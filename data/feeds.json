@@ -1,0 +1,9 @@
+[
+  { "tool": "OpenAI",     "url": "https://openai.com/news/rss.xml",              "max": 5 },
+  { "tool": "Anthropic",  "url": "https://www.anthropic.com/rss.xml",            "max": 5 },
+  { "tool": "Google AI",  "url": "https://blog.google/technology/ai/rss/",       "max": 5 },
+  { "tool": "GitHub",     "url": "https://github.blog/changelog/feed/",          "max": 5 },
+  { "tool": "Microsoft",  "url": "https://blogs.microsoft.com/ai/feed/",         "max": 5 },
+  { "tool": "Perplexity", "url": "https://blog.perplexity.ai/rss",              "max": 5 },
+  { "tool": "Mistral",    "url": "https://mistral.ai/news/rss.xml",             "max": 5 }
+]
