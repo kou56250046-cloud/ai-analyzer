@@ -226,7 +226,7 @@ function renderBars(animate = true) {
     r.innerHTML = `
       <div class="bar-rank">${String(i + 1).padStart(2, '0')}</div>
       <div class="bar-name">${esc(row.t.name)}</div>
-      <div class="bar-track"><div class="bar-fill${plan === 'paid' ? ' paid' : ''}${i === 0 ? ' top-bar' : ''}"></div></div>
+      <div class="bar-track"><div class="bar-fill ${esc(row.t.id)}${i === 0 ? ' top-bar' : ''}"></div></div>
       <div class="bar-val">${row.v}%</div>`;
     host.appendChild(r);
     const fill = r.querySelector('.bar-fill');

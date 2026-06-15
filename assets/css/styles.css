@@ -190,6 +190,21 @@ section.block { padding: 74px 0; border-top: 1px solid var(--line); }
 .bar-fill.anthropic  { background: linear-gradient(90deg, var(--amber-d), var(--amber)); }
 .bar-fill.google     { background: linear-gradient(90deg, #7c6bd6, var(--violet)); }
 .bar-fill.mistral    { background: linear-gradient(90deg, #3dbd8a, var(--good)); }
+
+/* ── ツール別バーカラー（比較コンソール） ── */
+.bar-fill.chatgpt          { background: linear-gradient(90deg, #0d8a6e, #10c49a); }
+.bar-fill.claude           { background: linear-gradient(90deg, var(--amber-d), var(--amber)); }
+.bar-fill.gemini           { background: linear-gradient(90deg, #1a60c8, #4d9eff); }
+.bar-fill.perplexity       { background: linear-gradient(90deg, #117a8b, #20c8d8); }
+.bar-fill.notebooklm       { background: linear-gradient(90deg, #00695c, #26a69a); }
+.bar-fill.genspark         { background: linear-gradient(90deg, #c05100, #f97316); }
+.bar-fill.githubcopilot    { background: linear-gradient(90deg, #4a1d96, #7c3aed); }
+.bar-fill.codex            { background: linear-gradient(90deg, var(--cyan-d), var(--cyan)); }
+.bar-fill.jules            { background: linear-gradient(90deg, #1565c0, #42a5f5); }
+.bar-fill.microsoftcopilot { background: linear-gradient(90deg, #005fa3, #0095e0); }
+.bar-fill.gamma            { background: linear-gradient(90deg, #9c1db9, #d946ef); }
+.bar-fill.canva            { background: linear-gradient(90deg, #007b8a, #00c4cc); }
+.bar-fill.otterai          { background: linear-gradient(90deg, #b51039, #f43f6a); }
 .bar-val { font-family: var(--mono); font-size: 13px; color: var(--muted); text-align: right; }
 
 /* ============================ TABS (用途) ============================ */
