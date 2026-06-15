@@ -186,7 +186,10 @@ section.block { padding: 74px 0; border-top: 1px solid var(--line); }
   background: linear-gradient(90deg, var(--cyan-d), var(--cyan));
   transition: width .9s cubic-bezier(.22,1,.36,1);
 }
-.bar-fill.paid { background: linear-gradient(90deg, var(--amber-d), var(--amber)); }
+.bar-fill.paid       { background: linear-gradient(90deg, var(--amber-d), var(--amber)); }
+.bar-fill.anthropic  { background: linear-gradient(90deg, var(--amber-d), var(--amber)); }
+.bar-fill.google     { background: linear-gradient(90deg, #7c6bd6, var(--violet)); }
+.bar-fill.mistral    { background: linear-gradient(90deg, #3dbd8a, var(--good)); }
 .bar-val { font-family: var(--mono); font-size: 13px; color: var(--muted); text-align: right; }
 
 /* ============================ TABS (用途) ============================ */

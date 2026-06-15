@@ -42,7 +42,7 @@ export const USECASES = [
 export const CATEGORIES = {
   社内: [
     { key: 'minutes',  name: '議事録・会議要約',    tools: ['notebooklm', 'otterai', 'microsoftcopilot', 'claude'] },
-    { key: 'slides',   name: '資料・スライド作成',  tools: ['gamma', 'microsoftcopilot', 'gemini', 'chatgpt'] },
+    { key: 'slides',   name: '資料・スライド作成',  tools: ['gamma', 'canva', 'microsoftcopilot', 'chatgpt'] },
     { key: 'docs',     name: '社内文書・マニュアル', tools: ['claude', 'microsoftcopilot', 'chatgpt', 'gemini'] },
     { key: 'mail',     name: 'メール・問い合わせ文', tools: ['microsoftcopilot', 'chatgpt', 'gemini', 'claude'] },
     { key: 'data',     name: 'データ集計・分析',    tools: ['gemini', 'chatgpt', 'microsoftcopilot', 'claude'] },
@@ -55,10 +55,10 @@ export const CATEGORIES = {
     { key: 'writing',  name: '文章作成・添削',       tools: ['claude', 'chatgpt', 'gemini', 'microsoftcopilot'] },
     { key: 'study',    name: '学習・要約',           tools: ['notebooklm', 'claude', 'chatgpt', 'gemini'] },
     { key: 'voice',    name: '音声の文字起こし',     tools: ['otterai', 'notebooklm', 'gemini', 'microsoftcopilot'] },
-    { key: 'image',    name: '画像・イラスト生成',   tools: ['chatgpt', 'gemini', 'genspark', 'microsoftcopilot'] },
+    { key: 'image',    name: '画像・イラスト生成',   tools: ['chatgpt', 'canva', 'gemini', 'genspark'] },
     { key: 'idea',     name: 'アイデア出し・壁打ち', tools: ['chatgpt', 'claude', 'gemini', 'genspark'] },
     { key: 'code',     name: 'プログラミング学習',   tools: ['claude', 'chatgpt', 'githubcopilot', 'gemini'] },
-    { key: 'slides',   name: '資料・スライド作成',   tools: ['gamma', 'gemini', 'chatgpt', 'genspark'] },
+    { key: 'slides',   name: '資料・スライド作成',   tools: ['canva', 'gamma', 'gemini', 'chatgpt'] },
   ],
 };
 
@@ -246,6 +246,20 @@ const TOOLS_RAW = [
     },
   },
   {
+    id: 'canva', name: 'Canva', vendor: 'Canva', type: 'デザイン・スライド',
+    scenes: ['社内', '個人'],
+    tags: ['デザイン', 'スライド生成', '画像生成', 'SNS', 'テンプレート'],
+    accent: 'amber',
+    summary: 'テンプレートベースのデザインツールに AI（Magic Studio）を統合。Magic Media（画像生成）・Magic Write（文章生成）・AI プレゼン生成を搭載。デザインスキル不要でプロ品質のビジュアルを作成できる。',
+    free:  { plan: '無料プラン（月50クレジット）', note: 'Magic Write・Magic Media を月50クレジット分無料利用可。基本テンプレートも使用可。' },
+    paid:  { plan: 'Pro（$15/月）', note: 'AI機能500クレジット/月、140M+ プレミアムテンプレート、Brand Kit、1TB ストレージ。' },
+    url: 'https://www.canva.com',
+    scores:  { quality: 78, speed: 92, cost: 72, usability: 98, integration: 65, versatility: 70 },
+    caps:    { long_text: 38, coding: 5, image_understanding: 42, realtime_search: 20, transcription: 20, image_generation: 78, japanese: 72, agent: 22, cost: 72 },
+    fit:     { minutes: 20, slides: 98, coding: 5, transcription: 20, research: 20, writing: 45, data: 22, translation: 38, image: 80, ideation: 75 },
+    freeAdjust: { scores: { cost: +20 }, caps: { image_generation: -20, cost: +20 }, fit: { slides: -15 } },
+  },
+  {
     id: 'otterai', name: 'Otter.ai', vendor: 'Otter.ai', type: '議事録・文字起こし',
     scenes: ['社内', '個人'], tags: ['文字起こし', '会議録', '要約', 'Zoom連携'],
     accent: 'cyan',
@@ -340,3 +354,32 @@ export const META = {
   updated: '2026-06-15',
   toolCount: TOOLS.length,
 };
+
+// ---- モデル別能力値比較 ----------------------------------------------------
+export const MODEL_CAP_LABELS = {
+  reasoning: '推論・思考力',
+  coding:    'コーディング',
+  japanese:  '日本語精度',
+  speed:     '応答速度',
+  cost:      'コスパ（安価さ）',
+  context:   'コンテキスト長',
+  image_in:  '画像理解',
+  image_gen: '画像生成',
+};
+
+// caps キーは MODEL_CAP_LABELS のキーと対応。vendor でバー色を制御。
+export const MODELS = [
+  { id: 'claude-haiku-4-5',  name: 'Claude Haiku 4.5',  vendor: 'anthropic', caps: { reasoning: 70, coding: 73, japanese: 82, speed: 95, cost: 88, context: 82, image_in: 72, image_gen: 0  } },
+  { id: 'claude-sonnet-4-6', name: 'Claude Sonnet 4.6', vendor: 'anthropic', caps: { reasoning: 85, coding: 80, japanese: 90, speed: 78, cost: 65, context: 82, image_in: 80, image_gen: 0  } },
+  { id: 'claude-opus-4-8',   name: 'Claude Opus 4.8',   vendor: 'anthropic', caps: { reasoning: 93, coding: 89, japanese: 93, speed: 50, cost: 45, context: 82, image_in: 85, image_gen: 0  } },
+  { id: 'claude-fable-5',    name: 'Claude Fable 5',    vendor: 'anthropic', caps: { reasoning: 97, coding: 95, japanese: 95, speed: 45, cost: 30, context: 98, image_in: 88, image_gen: 0  } },
+  { id: 'gpt-4o-mini',       name: 'GPT-4o mini',       vendor: 'openai',    caps: { reasoning: 70, coding: 72, japanese: 70, speed: 92, cost: 95, context: 72, image_in: 72, image_gen: 0  } },
+  { id: 'gpt-4o',            name: 'GPT-4o',            vendor: 'openai',    caps: { reasoning: 85, coding: 87, japanese: 78, speed: 75, cost: 68, context: 72, image_in: 90, image_gen: 80 } },
+  { id: 'gpt-5',             name: 'GPT-5',             vendor: 'openai',    caps: { reasoning: 93, coding: 92, japanese: 82, speed: 68, cost: 80, context: 90, image_in: 93, image_gen: 85 } },
+  { id: 'gpt-5-5',           name: 'GPT-5.5',           vendor: 'openai',    caps: { reasoning: 97, coding: 93, japanese: 82, speed: 52, cost: 48, context: 98, image_in: 93, image_gen: 88 } },
+  { id: 'gemini-1-5-flash',  name: 'Gemini 1.5 Flash',  vendor: 'google',    caps: { reasoning: 70, coding: 70, japanese: 70, speed: 95, cost: 95, context: 98, image_in: 78, image_gen: 55 } },
+  { id: 'gemini-2-5-flash',  name: 'Gemini 2.5 Flash',  vendor: 'google',    caps: { reasoning: 80, coding: 80, japanese: 78, speed: 88, cost: 85, context: 95, image_in: 85, image_gen: 92 } },
+  { id: 'gemini-3-1-pro',    name: 'Gemini 3.1 Pro',    vendor: 'google',    caps: { reasoning: 95, coding: 82, japanese: 88, speed: 55, cost: 78, context: 98, image_in: 95, image_gen: 90 } },
+  { id: 'gemini-3-5-flash',  name: 'Gemini 3.5 Flash',  vendor: 'google',    caps: { reasoning: 82, coding: 85, japanese: 82, speed: 90, cost: 82, context: 98, image_in: 88, image_gen: 88 } },
+  { id: 'mistral-large-2',   name: 'Mistral Large 2',   vendor: 'mistral',   caps: { reasoning: 80, coding: 85, japanese: 60, speed: 78, cost: 72, context: 72, image_in: 62, image_gen: 0  } },
+];

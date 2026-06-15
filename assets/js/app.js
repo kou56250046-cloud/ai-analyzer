@@ -1,12 +1,14 @@
 import {
   TOOLS, TOOLS_BY_ID, SCORE_LABELS, CAP_LABELS, USECASES,
   CATEGORIES, WORKFLOWS, NEWS, CATEGORY_LABELS, META,
+  MODELS, MODEL_CAP_LABELS,
 } from './data.js';
 
 /* ── state ─────────────────────────────────────────────────────────── */
 let plan = 'free';
 let activeCap = 'long_text';
 let activeScene = '社内';
+let activeModelCap = 'reasoning';
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -234,6 +236,52 @@ function renderBars(animate = true) {
       requestAnimationFrame(() => requestAnimationFrame(() => { fill.style.width = pct + '%'; }));
     } else {
       fill.style.width = pct + '%';
+    }
+  });
+}
+
+/* ── MODEL BENCHMARK ────────────────────────────────────────────────── */
+function buildModelCapTags() {
+  const box = $('#modelCapTags');
+  if (!box) return;
+  Object.entries(MODEL_CAP_LABELS).forEach(([key, label]) => {
+    const b = el('button', 'cap-tag' + (key === activeModelCap ? ' active' : ''), label);
+    b.dataset.cap = key;
+    b.addEventListener('click', () => {
+      activeModelCap = key;
+      $$('#modelCapTags .cap-tag').forEach((t) => t.classList.toggle('active', t.dataset.cap === key));
+      b.classList.remove('ripple-out');
+      void b.offsetWidth;
+      b.classList.add('ripple-out');
+      b.addEventListener('animationend', () => b.classList.remove('ripple-out'), { once: true });
+      renderModelBars();
+    });
+    box.appendChild(b);
+  });
+}
+
+function renderModelBars(animate = true) {
+  const host = $('#modelBars');
+  if (!host) return;
+  const ranked = [...MODELS]
+    .map((m) => ({ m, v: m.caps[activeModelCap] ?? 0 }))
+    .sort((a, b) => b.v - a.v);
+
+  host.innerHTML = '';
+  ranked.forEach((row, i) => {
+    const r = el('div', 'bar-row');
+    r.innerHTML = `
+      <div class="bar-rank">${String(i + 1).padStart(2, '0')}</div>
+      <div class="bar-name">${esc(row.m.name)}</div>
+      <div class="bar-track"><div class="bar-fill ${esc(row.m.vendor)}${i === 0 ? ' top-bar' : ''}"></div></div>
+      <div class="bar-val">${row.v}%</div>`;
+    host.appendChild(r);
+    const fill = r.querySelector('.bar-fill');
+    if (animate) {
+      fill.style.transitionDelay = `${i * 0.045}s`;
+      requestAnimationFrame(() => requestAnimationFrame(() => { fill.style.width = row.v + '%'; }));
+    } else {
+      fill.style.width = row.v + '%';
     }
   });
 }
@@ -467,6 +515,7 @@ function wireReveal() {
       if (id === 'console')   renderBars(true);
       if (id === 'tools')     initToolCardReveal();
       if (id === 'heatmap')   initHeatReveal();
+      if (id === 'models')    renderModelBars(true);
       if (id === 'usecases')  $('#catGrid').classList.add('animated');
       if (id === 'workflows') $('#wfGrid').classList.add('animated');
       if (id === 'news') {
@@ -541,6 +590,8 @@ function wireNav() {
 initScrollBar();
 buildCapTags();
 renderBars(false);
+buildModelCapTags();
+renderModelBars(false);
 wirePlanToggles();
 renderCategories();
 wireTabs();
