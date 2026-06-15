@@ -1,7 +1,7 @@
 import {
   TOOLS, TOOLS_BY_ID, SCORE_LABELS, CAP_LABELS, USECASES,
   CATEGORIES, WORKFLOWS, NEWS, CATEGORY_LABELS, META,
-  MODELS, MODEL_CAP_LABELS,
+  MODELS, MODEL_CAP_LABELS, CODING_TOOLS, CHANGELOGS,
 } from './data.js';
 
 /* ── state ─────────────────────────────────────────────────────────── */
@@ -9,6 +9,7 @@ let plan = 'free';
 let activeCap = 'long_text';
 let activeScene = '社内';
 let activeModelCap = 'reasoning';
+let activeChangelogTool = 'all';
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -19,7 +20,6 @@ const el = (tag, cls, html) => {
   return n;
 };
 
-// HTML エスケープ（innerHTML に動的値を埋め込む際に使用）
 const esc = (s) =>
   String(s ?? '')
     .replace(/&/g, '&amp;')
@@ -27,10 +27,8 @@ const esc = (s) =>
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
 
-// URL を http/https に限定
 const safeUrl = (u) => /^https?:\/\//i.test(String(u ?? '')) ? u : '#';
 
-// CSS クラス名として安全なカテゴリ値のみ許可
 const VALID_NEWS_CATS = new Set(['new_feature', 'update', 'pricing', 'integration', 'deprecation']);
 const safeClass = (c) => VALID_NEWS_CATS.has(c) ? c : 'update';
 
@@ -39,10 +37,30 @@ function heatColor(v) {
   return `rgba(79,214,255,${(0.12 + t * 0.85).toFixed(2)})`;
 }
 
+/* ── SimpleIcons アイコン HTML ──────────────────────────────────────── */
+function toolIconHtml(t, size = 22) {
+  if (t.icon) {
+    // data-icon / data-letter を使い、onerror はあとで addEventListener で付与
+    return `<img class="tool-icon" data-icon="${esc(t.icon)}" data-letter="${esc(t.name[0])}" src="https://cdn.simpleicons.org/${esc(t.icon)}/c0c8e0" width="${size}" height="${size}" alt="${esc(t.name)}" loading="lazy" /><span class="tool-icon-letter" style="display:none">${esc(t.name[0])}</span>`;
+  }
+  return `<span class="tool-icon-letter">${esc(t.name[0])}</span>`;
+}
+
+function wireIconFallbacks(root = document) {
+  root.querySelectorAll('img.tool-icon').forEach((img) => {
+    if (img.dataset.bound) return;
+    img.dataset.bound = '1';
+    img.addEventListener('error', () => {
+      img.style.display = 'none';
+      const sib = img.nextElementSibling;
+      if (sib && sib.classList.contains('tool-icon-letter')) sib.style.display = 'flex';
+    }, { once: true });
+  });
+}
+
 /* ── META ───────────────────────────────────────────────────────────── */
 $$('[data-meta="updated"]').forEach((n) => (n.textContent = META.updated));
 $$('[data-meta="year"]').forEach((n) => (n.textContent = new Date().getFullYear()));
-// footer count (non-animated)
 $$('[data-meta="count"]').forEach((n) => {
   if (!n.hasAttribute('data-count')) n.textContent = META.toolCount;
 });
@@ -100,7 +118,6 @@ function initHeroParticles() {
   (function loop() {
     ctx.clearRect(0, 0, W, H);
 
-    // connections between nearby particles
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
@@ -118,7 +135,6 @@ function initHeroParticles() {
       }
     }
 
-    // particles
     particles.forEach((p) => {
       const dx = mouse.x - p.x;
       const dy = mouse.y - p.y;
@@ -205,7 +221,7 @@ function buildCapTags() {
       activeCap = key;
       $$('.cap-tag').forEach((t) => t.classList.toggle('active', t.dataset.cap === key));
       b.classList.remove('ripple-out');
-      void b.offsetWidth; // reflow to restart animation
+      void b.offsetWidth;
       b.classList.add('ripple-out');
       b.addEventListener('animationend', () => b.classList.remove('ripple-out'), { once: true });
       renderBars();
@@ -297,7 +313,6 @@ function wirePlanToggles() {
       if (b.dataset.plan === plan) return;
       plan = b.dataset.plan;
       syncPlanButtons();
-      // animate bars to zero, then rebuild with new plan
       $$('.bar-fill').forEach((f) => { f.style.transitionDelay = '0s'; f.style.width = '0'; });
       setTimeout(() => { renderBars(); renderHeatmap(); }, 460);
     })
@@ -332,21 +347,86 @@ function wireTabs() {
   );
 }
 
+/* ── TOOL SEARCH ────────────────────────────────────────────────────── */
+function initToolSearch() {
+  const input = $('#toolSearch');
+  if (!input) return;
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    $$('.tool-card').forEach((card) => {
+      const name    = (card.dataset.name    || '').toLowerCase();
+      const vendor  = (card.dataset.vendor  || '').toLowerCase();
+      const type    = (card.dataset.type    || '').toLowerCase();
+      const tags    = (card.dataset.tags    || '').toLowerCase();
+      const summary = (card.dataset.summary || '').toLowerCase();
+      const match = !q || name.includes(q) || vendor.includes(q) || type.includes(q) || tags.includes(q) || summary.includes(q);
+      card.style.display = match ? '' : 'none';
+    });
+  });
+}
+
 /* ── TOOL GRID ──────────────────────────────────────────────────────── */
 function renderTools() {
   const host = $('#toolGrid');
   TOOLS.forEach((t, i) => {
     const card = el('div', 'tool-card');
-    card.dataset.accent = t.accent;
+    card.dataset.accent  = t.accent;
+    card.dataset.name    = t.name;
+    card.dataset.vendor  = t.vendor;
+    card.dataset.type    = t.type;
+    card.dataset.tags    = t.tags.join(' ');
+    card.dataset.summary = t.summary;
     card.style.setProperty('--i', i);
+
     card.innerHTML = `
       <div class="accentline"></div>
-      <div class="t-top"><h3>${esc(t.name)}</h3><span class="vendor">${esc(t.vendor)}</span></div>
+      <div class="t-top">
+        <div class="t-icon-name">
+          ${toolIconHtml(t, 20)}
+          <h3>${esc(t.name)}</h3>
+        </div>
+        <span class="vendor">${esc(t.vendor)}</span>
+      </div>
       <span class="type">${esc(t.type)}</span>
       <p>${esc(t.summary)}</p>
       <div class="chips">${t.tags.map((x) => `<span class="chip">${esc(x)}</span>`).join('')}</div>
-      <div class="open">詳細を見る <span class="arrow">→</span></div>`;
-    card.addEventListener('click', () => openModal(t.id));
+      <button class="expand-btn" aria-expanded="false">詳細 <span class="expand-arrow">▼</span></button>
+      <div class="expand-body" hidden>
+        <div class="plan-row">
+          <div class="plan-mini free">
+            <div class="plan-mini-label">無料</div>
+            <div class="plan-mini-name">${esc(t.plans.free.plan)}</div>
+            <div class="plan-mini-note">${esc(t.plans.free.note)}</div>
+          </div>
+          <div class="plan-mini paid">
+            <div class="plan-mini-label">有料</div>
+            <div class="plan-mini-name">${esc(t.plans.paid.plan)}</div>
+            <div class="plan-mini-note">${esc(t.plans.paid.note)}</div>
+          </div>
+        </div>
+        <div class="expand-actions">
+          <a class="expand-link" href="${safeUrl(t.url)}" target="_blank" rel="noopener noreferrer">公式サイト →</a>
+          <button class="expand-chart-btn">6軸チャート →</button>
+        </div>
+      </div>`;
+
+    const expandBtn  = card.querySelector('.expand-btn');
+    const expandBody = card.querySelector('.expand-body');
+    const chartBtn   = card.querySelector('.expand-chart-btn');
+
+    expandBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = !expandBody.hidden;
+      expandBody.hidden = isOpen;
+      expandBtn.setAttribute('aria-expanded', String(!isOpen));
+      card.classList.toggle('expanded', !isOpen);
+    });
+
+    chartBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openModal(t.id);
+    });
+
     host.appendChild(card);
   });
 }
@@ -354,6 +434,7 @@ function renderTools() {
 function initToolCard3D() {
   $$('.tool-card').forEach((card) => {
     card.addEventListener('mousemove', (e) => {
+      if (card.classList.contains('expanded')) return;
       const rect = card.getBoundingClientRect();
       const rx = ((e.clientY - rect.top  - rect.height / 2) / (rect.height / 2)) * -7;
       const ry = ((e.clientX - rect.left - rect.width  / 2) / (rect.width  / 2)) * 7;
@@ -368,6 +449,95 @@ function initToolCardReveal() {
     card.style.animationDelay = `${i * 0.055}s`;
     card.classList.add('card-reveal');
   });
+}
+
+/* ── CODING SPECIAL ─────────────────────────────────────────────────── */
+function renderCodingSpecial() {
+  const host = $('#codingGrid');
+  if (!host) return;
+  CODING_TOOLS.forEach((c) => {
+    const t = TOOLS_BY_ID[c.id];
+    if (!t) return;
+    const codingScore = t.caps.paid.coding;
+    const agentScore  = t.caps.paid.agent;
+    const card = el('div', 'coding-card');
+    card.innerHTML = `
+      <div class="coding-card-top">
+        <div class="coding-icon-name">
+          ${toolIconHtml(t, 28)}
+          <div>
+            <div class="coding-name">${esc(t.name)}</div>
+            <div class="coding-strength">${esc(c.strength)}</div>
+          </div>
+        </div>
+      </div>
+      <p class="coding-detail">${esc(c.detail)}</p>
+      <div class="coding-scores">
+        <div class="coding-score-item">
+          <div class="coding-score-label">コーディング</div>
+          <div class="coding-score-bar-wrap">
+            <div class="coding-score-bar" data-target="${codingScore}"></div>
+          </div>
+          <div class="coding-score-val">${codingScore}%</div>
+        </div>
+        <div class="coding-score-item">
+          <div class="coding-score-label">エージェント</div>
+          <div class="coding-score-bar-wrap">
+            <div class="coding-score-bar agent" data-target="${agentScore}"></div>
+          </div>
+          <div class="coding-score-val">${agentScore}%</div>
+        </div>
+      </div>
+      <a class="expand-link" href="${safeUrl(t.url)}" target="_blank" rel="noopener noreferrer">公式サイト →</a>`;
+    host.appendChild(card);
+  });
+}
+
+function initCodingBars() {
+  $$('.coding-score-bar').forEach((bar) => {
+    const target = (bar.dataset.target ?? '0') + '%';
+    bar.style.width = '0';
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      bar.style.width = target;
+    }));
+  });
+}
+
+/* ── PRICING TABLE ──────────────────────────────────────────────────── */
+function renderPricing() {
+  const host = $('#pricingTable');
+  if (!host) return;
+  const rows = TOOLS.map((t) => {
+    const free = t.price ? esc(t.price.free) : '—';
+    const paid = t.price ? esc(t.price.paid) : '—';
+    return `
+      <tr>
+        <td class="pricing-tool">
+          <div class="pricing-tool-inner">
+            ${toolIconHtml(t, 18)}
+            <span>${esc(t.name)}</span>
+          </div>
+        </td>
+        <td class="pricing-type">${esc(t.type)}</td>
+        <td class="pricing-free"><span class="price-badge free">${free}</span></td>
+        <td class="pricing-paid"><span class="price-badge paid">${paid}</span></td>
+        <td class="pricing-link"><a href="${safeUrl(t.url)}" target="_blank" rel="noopener noreferrer" class="pricing-site-link">→</a></td>
+      </tr>`;
+  }).join('');
+
+  host.innerHTML = `
+    <table class="pricing-tbl">
+      <thead>
+        <tr>
+          <th>ツール</th>
+          <th>カテゴリ</th>
+          <th>無料プラン</th>
+          <th>有料プラン</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>`;
 }
 
 /* ── HEATMAP ────────────────────────────────────────────────────────── */
@@ -416,8 +586,21 @@ function renderNews() {
       </div>`;
     host.appendChild(item);
   });
-  // hide for stagger reveal
   $$('.news-item').forEach((item) => { item.style.opacity = '0'; });
+}
+
+/* ── NEWS TIMELINE TOGGLE ───────────────────────────────────────────── */
+function initNewsTimeline() {
+  const btn  = $('#newsTimelineToggle');
+  const list = $('#newsList');
+  if (!btn || !list) return;
+  let isTimeline = false;
+  btn.addEventListener('click', () => {
+    isTimeline = !isTimeline;
+    list.classList.toggle('timeline', isTimeline);
+    btn.classList.toggle('active', isTimeline);
+    btn.textContent = isTimeline ? '≡ リスト表示' : '○ タイムライン';
+  });
 }
 
 /* ── WORKFLOWS ──────────────────────────────────────────────────────── */
@@ -433,6 +616,50 @@ function renderWorkflows() {
       </div>`).join('');
     card.innerHTML = `<span class="scene">${esc(w.scene)}</span><h3>${esc(w.title)}</h3>${steps}`;
     host.appendChild(card);
+  });
+}
+
+/* ── CHANGELOG ──────────────────────────────────────────────────────── */
+function renderChangelog() {
+  const host      = $('#changelogList');
+  const tabsHost  = $('#changelogTabs');
+  if (!host || !tabsHost) return;
+
+  const toolNames = ['all', ...new Set(CHANGELOGS.map((c) => c.tool))];
+
+  tabsHost.innerHTML = '';
+  toolNames.forEach((name) => {
+    const b = el('button', 'cl-tab' + (name === 'all' ? ' active' : ''), name === 'all' ? 'すべて' : esc(name));
+    b.dataset.tool = name;
+    b.addEventListener('click', () => {
+      activeChangelogTool = name;
+      $$('.cl-tab').forEach((x) => x.classList.toggle('active', x.dataset.tool === name));
+      drawChangelog();
+    });
+    tabsHost.appendChild(b);
+  });
+
+  drawChangelog();
+}
+
+function drawChangelog() {
+  const host = $('#changelogList');
+  if (!host) return;
+  const items = activeChangelogTool === 'all'
+    ? CHANGELOGS
+    : CHANGELOGS.filter((c) => c.tool === activeChangelogTool);
+
+  host.innerHTML = '';
+  items.forEach((c, i) => {
+    const row = el('div', 'cl-item');
+    row.style.setProperty('--i', i);
+    row.innerHTML = `
+      <div class="cl-header">
+        <span class="cl-date">${esc(c.date)}</span>
+        <span class="cl-tool">${esc(c.tool)}</span>
+      </div>
+      <div class="cl-content">${esc(c.content)}</div>`;
+    host.appendChild(row);
   });
 }
 
@@ -516,6 +743,7 @@ function wireReveal() {
       if (id === 'tools')     initToolCardReveal();
       if (id === 'heatmap')   initHeatReveal();
       if (id === 'models')    renderModelBars(true);
+      if (id === 'coding')    initCodingBars();
       if (id === 'usecases')  $('#catGrid').classList.add('animated');
       if (id === 'workflows') $('#wfGrid').classList.add('animated');
       if (id === 'news') {
@@ -597,16 +825,22 @@ renderCategories();
 wireTabs();
 renderTools();
 initToolCard3D();
+initToolSearch();
+renderCodingSpecial();
+renderPricing();
 renderHeatmap();
 renderNews();
 initNewsToggle();
+initNewsTimeline();
 renderWorkflows();
+renderChangelog();
 wireReveal();
 wireNav();
 initHeroParticles();
 initCounters();
 initNavScroll();
 initNavActiveLink();
+wireIconFallbacks();
 
 $('#modalClose').addEventListener('click', closeModal);
 $('#modalBack').addEventListener('click', (e) => { if (e.target.id === 'modalBack') closeModal(); });

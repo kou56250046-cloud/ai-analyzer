@@ -6,6 +6,15 @@
   <title>AIツール分析 — 生成AIの特徴・使い分け・最新動向</title>
   <meta name="description" content="生成AI・AIエージェントの特徴、用途別の使い分け、組み合わせ、最新アップデートを一元的にまとめた分析ハブ。無料/有料プラン別の適性を可視化。" />
 
+  <!-- OGP -->
+  <meta property="og:title" content="AIツール分析 — 生成AIの特徴・使い分け・最新動向" />
+  <meta property="og:description" content="生成AI・AIエージェントの特徴、用途別の使い分け、価格比較、最新アップデートを一元的にまとめた分析ハブ。" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- RSS フィード -->
+  <link rel="alternate" type="application/rss+xml" title="AIツール分析 — 最新アップデート" href="feed.xml" />
+
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,7 +38,9 @@
         <a href="#tools">図鑑</a>
         <a href="#heatmap">適性マップ</a>
         <a href="#models">モデル</a>
+        <a href="#pricing">料金</a>
         <a href="#news">最新</a>
+        <a href="#changelog">更新履歴</a>
         <a href="#workflows">組み合わせ</a>
       </div>
       <button class="nav-burger" id="burger" aria-label="メニュー">≡</button>
@@ -53,7 +64,7 @@
         <div class="stat"><div class="num"><b data-meta="count" data-count="13">0</b></div><div class="lbl">掲載ツール</div></div>
         <div class="stat"><div class="num"><span data-count="9">0</span></div><div class="lbl">能力軸</div></div>
         <div class="stat"><div class="num">無料 / 有料</div><div class="lbl">プラン別比較</div></div>
-        <div class="stat"><div class="num mono" data-meta="updated">2026-06-14</div><div class="lbl">最終更新</div></div>
+        <div class="stat"><div class="num mono" data-meta="updated">2026-06-15</div><div class="lbl">最終更新</div></div>
       </div>
     </div>
   </header>
@@ -104,9 +115,24 @@
       <div class="section-head">
         <span class="eyebrow">TOOL FIELD GUIDE</span>
         <h2>ツール図鑑</h2>
-        <p class="sub">カードをタップすると、無料／有料プランの違いと6軸のレーダーチャートが開きます。</p>
+        <p class="sub">「詳細▼」で無料／有料プランの違いが展開します。「6軸チャート →」で能力レーダーを確認できます。</p>
+      </div>
+      <div class="tool-search-wrap">
+        <input type="search" id="toolSearch" class="tool-search" placeholder="ツール名・キーワードで検索…" aria-label="ツールを検索" autocomplete="off" />
       </div>
       <div class="tool-grid" id="toolGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ CODING SPECIAL ============ -->
+  <section class="block reveal" id="coding">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">CODING TOOLS SPOTLIGHT</span>
+        <h2>AIコーディングツール特集</h2>
+        <p class="sub">IDE補完・CLI自律実行・Issue自動解決・長文理解まで、コーディング特化ツールを4軸で深掘りします。</p>
+      </div>
+      <div class="coding-grid" id="codingGrid"></div>
     </div>
   </section>
 
@@ -139,6 +165,18 @@
     </div>
   </section>
 
+  <!-- ============ PRICING ============ -->
+  <section class="block reveal" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">PRICING COMPARISON</span>
+        <h2>価格比較テーブル</h2>
+        <p class="sub">全ツールの無料プラン・有料プランの価格を一覧で確認できます（2026年6月時点）。</p>
+      </div>
+      <div class="pricing-wrap" id="pricingTable"></div>
+    </div>
+  </section>
+
   <!-- ============ NEWS ============ -->
   <section class="block reveal" id="news">
     <div class="wrap">
@@ -146,6 +184,10 @@
         <span class="eyebrow">WEEKLY UPDATES</span>
         <h2>今週の最新アップデート</h2>
         <p class="sub">新機能・アップデート・料金変更・連携・廃止をカテゴリ別に。見出しはGitHub Actionsが自動収集し、要約はClaude Code CLIで執筆します。</p>
+        <div class="news-controls">
+          <button class="news-view-btn" id="newsTimelineToggle">○ タイムライン</button>
+          <a class="news-view-btn" href="news.html">一覧ページ →</a>
+        </div>
       </div>
       <div class="news-list" id="newsList"></div>
       <div class="news-fold" id="newsFold">
@@ -154,6 +196,19 @@
           <span class="news-toggle-arrow">↓</span>
         </button>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ CHANGELOG ============ -->
+  <section class="block reveal" id="changelog">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">TOOL CHANGELOG</span>
+        <h2>ツール更新ログ</h2>
+        <p class="sub">各AIツールのアップデート履歴を時系列で追えます。ツール名でフィルタできます。</p>
+      </div>
+      <div class="cl-tabs" id="changelogTabs"></div>
+      <div class="cl-list" id="changelogList"></div>
     </div>
   </section>
 
@@ -175,9 +230,13 @@
       <div>
         <div class="brand" style="margin-bottom:8px"><span class="dot"></span>AIツール分析</div>
         <div>生成AIの特徴・使い分け・最新動向をまとめる分析ハブ。</div>
+        <div style="margin-top:10px;display:flex;gap:14px;flex-wrap:wrap">
+          <a href="news.html" style="color:var(--cyan);font-family:var(--mono);font-size:12px">ニュース一覧 →</a>
+          <a href="feed.xml" style="color:var(--muted);font-family:var(--mono);font-size:12px">RSS フィード</a>
+        </div>
       </div>
       <div class="mono">
-        UPDATED <span data-meta="updated">2026-06-14</span><br>
+        UPDATED <span data-meta="updated">2026-06-15</span><br>
         スコアはすべて主観評価です<br>
         © <span data-meta="year">2026</span> AIツール分析
       </div>

@@ -29,11 +29,14 @@ jobs:
       - name: ニュース記事整形（AI不使用・キーワード自動分類）
         run: node scripts/update_news.mjs
 
+      - name: RSS フィード生成
+        run: node scripts/generate_feed.mjs
+
       - name: 変更があればコミット & プッシュ
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/news_inbox.json data/news-data.js
+          git add data/news_inbox.json data/news-data.js feed.xml
           git diff --staged --quiet || (
             git commit -m "chore: ニュース自動更新 $(date -u +%Y-%m-%d)" &&
             git push

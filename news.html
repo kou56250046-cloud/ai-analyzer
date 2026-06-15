@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ニュース一覧 — AIツール分析</title>
+  <meta name="description" content="生成AI・AIエージェントの最新アップデート一覧。新機能・料金変更・連携情報を全件表示。" />
+  <link rel="alternate" type="application/rss+xml" title="AIツール分析 — 最新アップデート" href="feed.xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .news-page-header { padding: 80px 0 32px; border-bottom: 1px solid var(--line); }
+    .news-page-header h1 { font-family: var(--display); font-size: clamp(24px,4vw,38px); margin: 14px 0 8px; }
+    .news-filter { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 28px; }
+    .nf-btn {
+      font-family: var(--mono); font-size: 12px; padding: 6px 14px; border-radius: 999px;
+      background: var(--ink-3); color: var(--muted); border: 1px solid var(--line);
+      cursor: pointer; transition: all .2s;
+    }
+    .nf-btn:hover { color: var(--text); border-color: var(--line-2); }
+    .nf-btn.active { background: var(--cyan); color: #042430; border-color: var(--cyan); font-weight: 700; }
+    .news-count { font-family: var(--mono); font-size: 12px; color: var(--faint); margin-bottom: 18px; }
+    #newsPageList { padding-bottom: 60px; }
+  </style>
+</head>
+<body>
+  <div id="scroll-bar"></div>
+
+  <nav class="nav">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <span class="dot"></span>
+        AIツール分析 <small>/ AI TOOL ANALYSIS</small>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#console">比較</a>
+        <a href="index.html#tools">図鑑</a>
+        <a href="index.html#pricing">料金</a>
+        <a href="news.html" class="active">最新一覧</a>
+        <a href="index.html#changelog">更新履歴</a>
+      </div>
+      <button class="nav-burger" id="burger" aria-label="メニュー">≡</button>
+    </div>
+  </nav>
+
+  <div class="news-page-header">
+    <div class="wrap">
+      <span class="eyebrow">ALL UPDATES</span>
+      <h1>AIニュース 全件一覧</h1>
+      <p style="color:var(--muted);max-width:560px">GitHub Actionsが自動収集し、Claude Code CLIで要約した生成AIの最新アップデートです。</p>
+      <div class="news-filter" id="catFilter">
+        <button class="nf-btn active" data-cat="all">すべて</button>
+        <button class="nf-btn" data-cat="new_feature">新機能</button>
+        <button class="nf-btn" data-cat="update">アップデート</button>
+        <button class="nf-btn" data-cat="pricing">料金変更</button>
+        <button class="nf-btn" data-cat="integration">連携・API</button>
+        <button class="nf-btn" data-cat="deprecation">廃止・終了</button>
+      </div>
+      <div class="news-count" id="newsCount"></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="news-list" id="newsPageList" style="margin-top:28px"></div>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <div>
+        <div class="brand" style="margin-bottom:8px"><span class="dot"></span>AIツール分析</div>
+        <div><a href="index.html" style="color:var(--cyan);font-family:var(--mono);font-size:12px">← トップに戻る</a></div>
+      </div>
+      <div class="mono">
+        スコアはすべて主観評価です<br>
+        © <span id="footerYear"></span> AIツール分析
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { NEWS, CATEGORY_LABELS } from './assets/js/data.js';
+
+    const VALID_CATS = new Set(['new_feature','update','pricing','integration','deprecation']);
+    const safeClass = (c) => VALID_CATS.has(c) ? c : 'update';
+    const esc = (s) => String(s ?? '')
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    const safeUrl = (u) => /^https?:\/\//i.test(String(u ?? '')) ? u : '#';
+
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    // scroll bar
+    const bar = document.getElementById('scroll-bar');
+    window.addEventListener('scroll', () => {
+      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+      bar.style.width = ((scrollTop / (scrollHeight - clientHeight)) * 100) + '%';
+    }, { passive: true });
+
+    // nav burger
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+    burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    // nav scroll
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+
+    let activeCat = 'all';
+
+    function renderAll() {
+      const host = document.getElementById('newsPageList');
+      const countEl = document.getElementById('newsCount');
+      const filtered = activeCat === 'all' ? NEWS : NEWS.filter((n) => n.category === activeCat);
+
+      host.innerHTML = '';
+      filtered.forEach((n, i) => {
+        const item = document.createElement('div');
+        item.className = 'news-item news-reveal';
+        item.style.setProperty('--i', i);
+        const cat = safeClass(n.category);
+        const catLabel = esc(CATEGORY_LABELS[n.category] || n.category);
+        const titleHtml = n.url && n.url !== '#'
+          ? `<a href="${safeUrl(n.url)}" target="_blank" rel="noopener noreferrer">${esc(n.title)}</a>`
+          : esc(n.title);
+        item.innerHTML = `
+          <div class="news-meta">
+            <div>${esc(n.date)}</div><div>${esc(n.tool)}</div>
+            <span class="news-cat ${cat}">${catLabel}</span>
+          </div>
+          <div>
+            <h4>${titleHtml}</h4>
+            <p>${esc(n.summary)}</p>
+          </div>`;
+        host.appendChild(item);
+      });
+
+      countEl.textContent = `${filtered.length} 件表示`;
+    }
+
+    document.getElementById('catFilter').addEventListener('click', (e) => {
+      const btn = e.target.closest('.nf-btn');
+      if (!btn) return;
+      activeCat = btn.dataset.cat;
+      document.querySelectorAll('.nf-btn').forEach((b) => b.classList.toggle('active', b === btn));
+      renderAll();
+    });
+
+    renderAll();
+  </script>
+</body>
+</html>
