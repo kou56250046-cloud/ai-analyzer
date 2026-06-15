@@ -227,10 +227,10 @@ const TOOLS_RAW = [
     scenes: ['社内'], tags: ['コード生成', 'エージェント', 'CLI', 'OSS'],
     accent: 'amber',
     icon: 'openai',
-    price: { free: 'OSS/無料', paid: 'API従量課金' },
-    summary: 'OpenAI が2025年5月公開のターミナル型コーディングエージェント。自然言語の指示でコード生成・編集・テスト実行を CLI 上で自律実行。OSS として公開済み。',
-    free:  { plan: 'OSS（無料）', note: 'OSS として無料提供。利用には OpenAI API キーが必要（API 利用料別途）。' },
-    paid:  { plan: 'API キー課金', note: 'GPT-4o など使用モデルに応じた API 利用料が発生。利用量に応じた従量課金。' },
+    price: { free: 'ChatGPT 無料プランに含む', paid: 'Plus $20/月に含む（API別）' },
+    summary: 'OpenAI が2025年5月公開のターミナル型コーディングエージェント。自然言語の指示でコード生成・編集・テスト実行を CLI 上で自律実行。OSS として公開済み。ChatGPT Plus 課金ユーザーは追加費用なしで利用可。',
+    free:  { plan: 'ChatGPT 無料プラン（最低制限）', note: 'ChatGPT アカウントで Codex にアクセス可。利用量に制限あり。API キー直接利用には $1.75/1M tokens 別途発生。' },
+    paid:  { plan: 'Plus（$20/月）に含む', note: 'Plus 以上なら追加費用なし。Pro（$100/月〜）でさらに制限拡張。API キー経由は $1.75/$14 per 1M tokens。' },
     url: 'https://openai.com/codex',
     scores: { quality: 88, speed: 78, cost: 55, usability: 75, integration: 82, versatility: 38 },
     caps:   { long_text: 38, coding: 95, image_understanding: 38, realtime_search: 20, transcription: 20, image_generation: 20, japanese: 58, agent: 95, cost: 55 },
@@ -436,6 +436,8 @@ export const MODELS = [
   { id: 'claude-fable-5',    name: 'Claude Fable 5',    vendor: 'anthropic', caps: { reasoning: 97, coding: 95, japanese: 95, speed: 42, cost: 28, context: 98, image_in: 90, image_gen: 0  } },
   // GPT-4o mini: 安価・高速。$0.15/$0.60 per 1M tokens
   { id: 'gpt-4o-mini',       name: 'GPT-4o mini',       vendor: 'openai',    caps: { reasoning: 62, coding: 45, japanese: 72, speed: 92, cost: 90, context: 72, image_in: 65, image_gen: 0  } },
+  // o3: 推論特化モデル。GPQA Diamond 83.3%、MMLU 91.6%、数学競技 96.7%。$2/$8 per 1M（2026年初 80%値下げ）。思考トークン分遅い
+  { id: 'o3',                name: 'o3',                 vendor: 'openai',    caps: { reasoning: 92, coding: 78, japanese: 80, speed: 32, cost: 72, context: 82, image_in: 82, image_gen: 0  } },
   // GPT-4o: 画像理解・生成に強い。DALL-E 3 統合
   { id: 'gpt-4o',            name: 'GPT-4o',            vendor: 'openai',    caps: { reasoning: 77, coding: 65, japanese: 80, speed: 78, cost: 65, context: 72, image_in: 88, image_gen: 82 } },
   // GPT-5: AIME 100%（数学）。SWE-bench GPT-5.3 Codex 85%
