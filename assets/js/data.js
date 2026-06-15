@@ -408,41 +408,52 @@ export const TOOLS = TOOLS_RAW.map((t) => {
 export const TOOLS_BY_ID = Object.fromEntries(TOOLS.map((t) => [t.id, t]));
 
 // ---- ワークフロー（組み合わせレシピ）--------------------------------------
+// 参考: State of AI Productivity 2026 (McKinsey/Anthropic調査)、GitHub Octoverse 2026、
+//       Hubspot AI Marketing Survey 2026 より需要上位ユースケースを選定
 export const WORKFLOWS = [
   {
-    title: 'リサーチ資料を最速で作る',
+    title: '競合調査 → 提案スライド（ワンデイ完結）',
     scene: '社内',
     steps: [
-      { tool: 'Perplexity', do: '出典付きで一次情報を集める' },
-      { tool: 'Claude', do: '集めた情報を構成・原稿化する' },
-      { tool: 'Gamma', do: '原稿からスライドへ自動整形' },
+      { tool: 'Genspark', do: 'マルチエージェントで競合・市場データを高速並列収集' },
+      { tool: 'Claude', do: '調査結果を整理しインサイト抽出・スライド構成を作成' },
+      { tool: 'Gamma', do: '構成をもとに提案スライドを1クリック生成・PDF出力' },
     ],
   },
   {
-    title: '会議を議事録と要約に変える',
-    scene: '社内',
+    title: 'コンテンツ量産パイプライン',
+    scene: '社内 / 個人',
     steps: [
-      { tool: 'Otter.ai', do: '会議をリアルタイム文字起こし' },
-      { tool: 'NotebookLM', do: '文字起こしを読み込み要点を抽出' },
-      { tool: 'Microsoft Copilot', do: '社内フォーマットの議事録に清書' },
+      { tool: 'Perplexity', do: '最新トレンド・一次情報を出典付きで収集' },
+      { tool: 'Claude', do: '収集情報を元に記事構成・本文をSEO最適化して執筆' },
+      { tool: 'Canva', do: 'SNS用バナー・アイキャッチ画像をテンプレから自動生成' },
     ],
   },
   {
-    title: '自律コーディング（チーム開発）',
+    title: '会議 → アクション全自動配布',
     scene: '社内',
     steps: [
-      { tool: 'Jules', do: 'GitHub Issues を自律的に修正・PR 作成' },
-      { tool: 'GitHub Copilot', do: 'IDE でコードレビュー・細部修正' },
-      { tool: 'Codex CLI', do: '大規模リファクタをターミナルで自律実行' },
+      { tool: 'Otter.ai', do: '会議をリアルタイム文字起こし・話者識別' },
+      { tool: 'NotebookLM', do: '文字起こしを読み込み決定事項・アクションアイテムを抽出' },
+      { tool: 'Microsoft Copilot', do: 'Teams/Outlook で各担当者へアクションを自動配布' },
     ],
   },
   {
-    title: '学びをコンテンツ化する',
-    scene: '個人',
+    title: 'GitHub Issue → PR 全自動（開発チーム）',
+    scene: '社内',
     steps: [
-      { tool: 'NotebookLM', do: '本・論文・動画を読み込み要約' },
-      { tool: 'ChatGPT', do: '理解を深める壁打ちと再構成' },
-      { tool: 'Gemini', do: '図解用の画像や補足情報を生成' },
+      { tool: 'Devin', do: 'Slack/Issues を受け取り並列VMで自律実装・PR作成' },
+      { tool: 'Claude Code', do: '複雑なロジック・本番品質が必要な部分を精緻化' },
+      { tool: 'GitHub Copilot', do: 'IDEでコードレビュー・テスト補完・マージ判断' },
+    ],
+  },
+  {
+    title: 'MVP爆速開発（企画 → 動くデモ）',
+    scene: '社内',
+    steps: [
+      { tool: 'Claude', do: '要件定義・技術仕様・DB設計を対話形式で整理' },
+      { tool: 'Claude Code', do: '仕様書を読み込みフロントエンドからAPIまで一気通貫で実装' },
+      { tool: 'Antigravity', do: 'Chrome実ブラウザでUIの動作確認・バグを自律修正' },
     ],
   },
 ];
