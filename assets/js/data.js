@@ -331,6 +331,55 @@ const TOOLS_RAW = [
       fit:    { minutes: -20, transcription: -20 },
     },
   },
+  {
+    id: 'claudecode', name: 'Claude Code', vendor: 'Anthropic', type: 'コーディングエージェント',
+    scenes: ['社内'], tags: ['CLI', 'エージェント', 'ファイル操作', '並列実行'],
+    accent: 'amber',
+    icon: 'anthropic',
+    price: { free: '不可（Pro必須）', paid: '$20/月（Pro）〜' },
+    summary: 'SWE-bench Verified 88.6%（Opus 4.8）で業界最高水準のコーディングエージェント。ターミナルからファイル編集・テスト・ブラウザ操作を自律実行。並列サブエージェント（Dynamic Workflows）で大規模タスクにも対応。Pro プラン（$20/月）必須。',
+    free:  { plan: '利用不可', note: '無料プランでは使用不可。Pro（$20/月）以上が必須。API キー経由での利用も可（従量課金）。' },
+    paid:  { plan: 'Pro $20/月 〜 Max $200/月', note: 'Pro: 対話型セッション利用可。Max $100: 自律実行枠大幅拡張。Max $200: エンタープライズ向け最大制限。' },
+    url: 'https://claude.ai/code',
+    scores: { quality: 95, speed: 60, cost: 45, usability: 80, integration: 85, versatility: 40 },
+    caps:   { long_text: 82, coding: 96, image_understanding: 62, realtime_search: 38, transcription: 18, image_generation: 5, slide_creation: 15, ideation: 45, japanese: 82, agent: 96, cost: 45 },
+    fit:    { minutes: 18, slides: 12, coding: 99, transcription: 18, research: 45, writing: 55, data: 72, translation: 32, image: 12, ideation: 45 },
+    freeAdjust: { scores: {}, caps: {}, fit: {} },
+  },
+  {
+    id: 'antigravity', name: 'Antigravity', vendor: 'Google', type: 'コーディングエージェント',
+    scenes: ['社内'], tags: ['デスクトップ', 'CLI', 'ブラウザ統合', 'マルチエージェント'],
+    accent: 'cyan',
+    icon: 'google',
+    price: { free: '無料（20回/日）', paid: '$20/月（Pro）' },
+    summary: 'Google I/O 2026 発表のエージェント型コーディングプラットフォーム。Gemini 3.5 Flash で 289 tok/s の超高速実行。Chrome 実ブラウザでUI自動テスト・デバッグが可能。デスクトップ・CLI・SDK の3形態で提供。',
+    free:  { plan: '無料（20リクエスト/日）', note: '1日20リクエスト制限。デスクトップアプリの基本機能は利用可。エージェント機能には厳しい制限あり。' },
+    paid:  { plan: 'Pro $20/月 〜 Ultra $250/月', note: 'Pro でリクエスト制限大幅緩和。Ultra でさらに5倍のAI制限拡張（マルチエージェント並列実行）。' },
+    url: 'https://antigravity.google',
+    scores: { quality: 78, speed: 92, cost: 68, usability: 90, integration: 90, versatility: 45 },
+    caps:   { long_text: 80, coding: 78, image_understanding: 78, realtime_search: 50, transcription: 20, image_generation: 72, slide_creation: 22, ideation: 42, japanese: 72, agent: 90, cost: 68 },
+    fit:    { minutes: 18, slides: 18, coding: 95, transcription: 18, research: 45, writing: 38, data: 65, translation: 32, image: 20, ideation: 42 },
+    freeAdjust: {
+      scores: { quality: -15, cost: +25, versatility: -15 },
+      caps:   { agent: -35, coding: -25, cost: +25 },
+      fit:    { coding: -30 },
+    },
+  },
+  {
+    id: 'devin', name: 'Devin', vendor: 'Cognition AI', type: 'コーディングエージェント',
+    scenes: ['社内'], tags: ['完全自律', 'Slack連携', '並列VM', 'バックグラウンド'],
+    accent: 'amber',
+    icon: null,
+    price: { free: '不可', paid: '$20/月 + $2.25/ACU' },
+    summary: 'Cognition AI の完全自律コーディングエージェント。Slack から Issue を委任するだけで並列VM上で自律実行・PR作成まで完結。バックログ消化・移行・リファクタなど定型タスクの大量処理が得意。コストは ACU 従量課金のため利用量次第。',
+    free:  { plan: '利用不可', note: '無料プランなし。Core（$20/月）が最安だが、実作業は別途 ACU 従量課金（$2.25/ACU ≈ 15分）が発生。' },
+    paid:  { plan: 'Core $20/月 + ACU課金', note: 'Core: $2.25/ACU。Team $500/月: 250 ACU 込みで実質割安。複雑タスク1件で10〜30 ACU 消費が目安。' },
+    url: 'https://devin.ai',
+    scores: { quality: 82, speed: 55, cost: 35, usability: 72, integration: 90, versatility: 42 },
+    caps:   { long_text: 72, coding: 88, image_understanding: 65, realtime_search: 55, transcription: 20, image_generation: 25, slide_creation: 18, ideation: 40, japanese: 68, agent: 98, cost: 35 },
+    fit:    { minutes: 18, slides: 15, coding: 95, transcription: 18, research: 42, writing: 35, data: 68, translation: 30, image: 15, ideation: 40 },
+    freeAdjust: { scores: {}, caps: {}, fit: {} },
+  },
 ];
 
 // ---- ビルダー：paid基準 + freeAdjust から free/paid を生成 -----------------
@@ -458,16 +507,25 @@ export const MODELS = [
   { id: 'mistral-large-2',   name: 'Mistral Large 2',   vendor: 'mistral',   caps: { reasoning: 72, coding: 60, japanese: 58, speed: 72, cost: 70, context: 72, image_in: 60, image_gen: 0  } },
 ];
 
-// ---- コーディングツール特集 — 掲載4ツールと強みテキスト ------------------
+// ---- コーディングエージェント比較（有料プラン基準） -----------------------
 export const CODING_TOOLS = [
   { id: 'githubcopilot', strength: 'IDE 補完 × エージェント', detail: 'エディタに常駐し、PR作成・テスト生成まで一気通貫。チーム開発との親和性が最高。' },
   { id: 'codex',         strength: 'CLI 自律実行',           detail: 'ターミナルで大規模リファクタ・テスト実行を自律化。OSS で導入コスト0。' },
   { id: 'jules',         strength: 'Issue → PR 自動解決',    detail: 'GitHub Issues をアサインするだけで非同期にバグ修正・PR作成まで完結。' },
   { id: 'claude',        strength: '長文コード理解力',        detail: '200K トークンの巨大コンテキストで、大規模リポジトリ全体を把握した上での実装が得意。' },
+  { id: 'claudecode',    strength: 'コード精度 業界最高',     detail: 'SWE-bench Verified 88.6%（Opus 4.8）で全エージェント中トップ。複雑な本番コードやMVP開発に最適。並列サブエージェント対応。' },
+  { id: 'antigravity',   strength: '超高速 × Chrome統合',    detail: '289 tok/s（Claude Codeの4倍速）。1M token コンテキストと Chrome 実ブラウザでUIを操作しながら自律デバッグ。' },
+  { id: 'devin',         strength: '完全自律 × 並列VM委任',  detail: 'Slack・GitHub Issues をアサインするだけで複数VMが並行して自律実行。バックログ消化・移行・定型作業の大量処理に特化。' },
 ];
 
 // ---- ツール更新ログ（Changelog）------------------------------------------
 export const CHANGELOGS = [
+  { tool: 'Claude Code',       date: '2026-06-15', content: 'autonomous usage を対話型と分離 — 自律実行の課金体系を刷新' },
+  { tool: 'Claude Code',       date: '2026-05-28', content: 'Claude Opus 4.8 対応・Dynamic Workflows プレビュー — SWE-bench 88.6% 達成' },
+  { tool: 'Antigravity',       date: '2026-05-19', content: 'Antigravity 2.0 発表（Google I/O）— デスクトップ・CLI・マルチエージェント SDK を同時リリース' },
+  { tool: 'Devin',             date: '2026-03-15', content: 'Devin 2.0 リリース — 並列VM・長期タスク文脈保持・Claude モデル選択に対応' },
+  { tool: 'Antigravity',       date: '2026-02-10', content: 'Chrome サブエージェント正式統合 — 実ブラウザでUI自動テスト・デバッグが可能に' },
+  { tool: 'Devin',             date: '2026-01-20', content: 'Core プラン $20/月 開始 — 従来の $500/月 Enterprise のみから個人開発者向けに価格改定' },
   { tool: 'Claude',            date: '2026-06-10', content: 'Sonnet 4.6 リリース — コーディング精度25%向上、長文処理安定性改善' },
   { tool: 'Claude',            date: '2026-05-01', content: 'Opus 4.8 リリース — 最高レベルの推論・分析能力を搭載' },
   { tool: 'Claude',            date: '2026-03-20', content: 'Fable 5 発表 — コンテキスト長98%・マルチモーダル能力大幅強化' },
