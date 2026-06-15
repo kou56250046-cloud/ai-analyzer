@@ -38,6 +38,8 @@ export const CAP_LABELS = {
   realtime_search:     'リアルタイム検索',
   transcription:       '音声・文字起こし',
   image_generation:    '画像生成',
+  slide_creation:      'スライド生成',
+  ideation:            'アイデア出し',
   japanese:            '日本語の自然さ',
   agent:               'エージェント自律性',
   cost:                'コスパ',
@@ -100,11 +102,11 @@ const TOOLS_RAW = [
     // quality: GPT-5.5 Artificial Analysis Intelligence Index 60.2/100（2位）
     // coding: GPT-5.3 Codex SWE-bench Verified 85%
     scores: { quality: 88, speed: 80, cost: 55, usability: 95, integration: 90, versatility: 95 },
-    caps:   { long_text: 90, coding: 88, image_understanding: 92, realtime_search: 78, transcription: 55, image_generation: 88, japanese: 80, agent: 82, cost: 55 },
+    caps:   { long_text: 90, coding: 88, image_understanding: 92, realtime_search: 78, transcription: 55, image_generation: 88, slide_creation: 65, ideation: 95, japanese: 80, agent: 82, cost: 55 },
     fit:    { minutes: 78, slides: 65, coding: 92, transcription: 60, research: 80, writing: 95, data: 80, translation: 95, image: 88, ideation: 95 },
     freeAdjust: {
       scores: { quality: -20, speed: -20, cost: +40, versatility: -20 },
-      caps:   { long_text: -20, coding: -20, image_generation: -40, realtime_search: -20, agent: -20, cost: +40 },
+      caps:   { long_text: -20, coding: -20, image_generation: -40, realtime_search: -20, agent: -20, slide_creation: -15, ideation: -20, cost: +40 },
       fit:    { coding: -20, image: -40, data: -20 },
     },
   },
@@ -121,7 +123,7 @@ const TOOLS_RAW = [
     // quality: Claude Fable 5 が Artificial Analysis Intelligence Index 首位（Opus 4.8: 61.4）
     // coding: SWE-bench Verified — Fable 5: 95%, Opus 4.8: 88.6%, Sonnet 4.6: 79.6%
     scores: { quality: 95, speed: 78, cost: 55, usability: 88, integration: 78, versatility: 85 },
-    caps:   { long_text: 98, coding: 95, image_understanding: 82, realtime_search: 38, transcription: 38, image_generation: 5, japanese: 92, agent: 85, cost: 55 },
+    caps:   { long_text: 98, coding: 95, image_understanding: 82, realtime_search: 38, transcription: 38, image_generation: 5, slide_creation: 62, ideation: 95, japanese: 92, agent: 85, cost: 55 },
     fit:    { minutes: 80, slides: 62, coding: 93, transcription: 38, research: 82, writing: 97, data: 82, translation: 95, image: 20, ideation: 95 },
     freeAdjust: {
       scores: { quality: -20, cost: +40 },
@@ -142,11 +144,11 @@ const TOOLS_RAW = [
     // quality: Gemini 3.1 Pro Artificial Analysis Intelligence Index 57（3位）、ARC-AGI-2: 77.1%（首位）
     // coding: Gemini 3.1 Pro SWE-bench Verified 75%; image_understanding: マルチモーダル首位級
     scores: { quality: 86, speed: 92, cost: 78, usability: 82, integration: 95, versatility: 90 },
-    caps:   { long_text: 95, coding: 78, image_understanding: 96, realtime_search: 98, transcription: 65, image_generation: 88, japanese: 85, agent: 82, cost: 80 },
+    caps:   { long_text: 95, coding: 78, image_understanding: 96, realtime_search: 98, transcription: 65, image_generation: 88, slide_creation: 65, ideation: 82, japanese: 85, agent: 82, cost: 80 },
     fit:    { minutes: 80, slides: 65, coding: 82, transcription: 65, research: 95, writing: 82, data: 95, translation: 95, image: 80, ideation: 82 },
     freeAdjust: {
       scores: { quality: -15, versatility: -15 },
-      caps:   { coding: -20, agent: -20 },
+      caps:   { coding: -20, agent: -20, slide_creation: -15 },
       fit:    { coding: -20, data: -20 },
     },
   },
@@ -161,7 +163,7 @@ const TOOLS_RAW = [
     paid:  { plan: 'Pro（$20/月）', note: 'Pro Search 無制限、ファイルアップロード、API アクセス、GPT-4o/Claude 切替。' },
     url: 'https://www.perplexity.ai',
     scores: { quality: 80, speed: 92, cost: 75, usability: 90, integration: 55, versatility: 55 },
-    caps:   { long_text: 60, coding: 38, image_understanding: 60, realtime_search: 98, transcription: 20, image_generation: 20, japanese: 78, agent: 58, cost: 78 },
+    caps:   { long_text: 60, coding: 38, image_understanding: 60, realtime_search: 98, transcription: 20, image_generation: 20, slide_creation: 35, ideation: 62, japanese: 78, agent: 58, cost: 78 },
     fit:    { minutes: 38, slides: 38, coding: 38, transcription: 20, research: 98, writing: 60, data: 60, translation: 80, image: 20, ideation: 62 },
     freeAdjust: {
       scores: { quality: -15, versatility: -15 },
@@ -180,7 +182,7 @@ const TOOLS_RAW = [
     paid:  { plan: 'Plus（Gemini Advanced 含む）', note: 'ノートブック上限拡張、高速処理、Business プランで管理機能追加。' },
     url: 'https://notebooklm.google.com',
     scores: { quality: 82, speed: 78, cost: 98, usability: 80, integration: 38, versatility: 52 },
-    caps:   { long_text: 78, coding: 20, image_understanding: 65, realtime_search: 38, transcription: 80, image_generation: 20, japanese: 80, agent: 38, cost: 98 },
+    caps:   { long_text: 78, coding: 20, image_understanding: 65, realtime_search: 38, transcription: 80, image_generation: 20, slide_creation: 35, ideation: 62, japanese: 80, agent: 38, cost: 98 },
     fit:    { minutes: 95, slides: 38, coding: 20, transcription: 80, research: 95, writing: 65, data: 65, translation: 60, image: 20, ideation: 62 },
     freeAdjust: { scores: {}, caps: {}, fit: {} },
   },
@@ -195,11 +197,11 @@ const TOOLS_RAW = [
     paid:  { plan: 'Plus（$15/月）', note: 'マルチエージェント機能強化、優先処理、ファイル分析上限拡張。' },
     url: 'https://www.genspark.ai',
     scores: { quality: 78, speed: 65, cost: 62, usability: 75, integration: 68, versatility: 85 },
-    caps:   { long_text: 78, coding: 60, image_understanding: 78, realtime_search: 95, transcription: 38, image_generation: 78, japanese: 78, agent: 95, cost: 62 },
+    caps:   { long_text: 78, coding: 60, image_understanding: 78, realtime_search: 95, transcription: 38, image_generation: 78, slide_creation: 78, ideation: 82, japanese: 78, agent: 95, cost: 62 },
     fit:    { minutes: 60, slides: 80, coding: 62, transcription: 38, research: 95, writing: 80, data: 80, translation: 78, image: 80, ideation: 82 },
     freeAdjust: {
       scores: { versatility: -20 },
-      caps:   { agent: -35, realtime_search: -20 },
+      caps:   { agent: -35, realtime_search: -20, slide_creation: -20 },
       fit:    { research: -20 },
     },
   },
@@ -214,7 +216,7 @@ const TOOLS_RAW = [
     paid:  { plan: 'Pro（$10/月）', note: 'コード補完・チャット無制限、エージェントモード（GA）、コードレビュー機能。' },
     url: 'https://github.com/features/copilot',
     scores: { quality: 82, speed: 90, cost: 78, usability: 92, integration: 95, versatility: 38 },
-    caps:   { long_text: 38, coding: 95, image_understanding: 38, realtime_search: 20, transcription: 20, image_generation: 20, japanese: 58, agent: 65, cost: 78 },
+    caps:   { long_text: 38, coding: 95, image_understanding: 38, realtime_search: 20, transcription: 20, image_generation: 20, slide_creation: 15, ideation: 38, japanese: 58, agent: 65, cost: 78 },
     fit:    { minutes: 20, slides: 20, coding: 98, transcription: 20, research: 38, writing: 38, data: 62, translation: 38, image: 20, ideation: 38 },
     freeAdjust: {
       scores: { quality: -15, versatility: -15 },
@@ -233,7 +235,7 @@ const TOOLS_RAW = [
     paid:  { plan: 'Plus（$20/月）に含む', note: 'Plus 以上なら追加費用なし。Pro（$100/月〜）でさらに制限拡張。API キー経由は $1.75/$14 per 1M tokens。' },
     url: 'https://openai.com/codex',
     scores: { quality: 88, speed: 78, cost: 55, usability: 75, integration: 82, versatility: 38 },
-    caps:   { long_text: 38, coding: 95, image_understanding: 38, realtime_search: 20, transcription: 20, image_generation: 20, japanese: 58, agent: 95, cost: 55 },
+    caps:   { long_text: 38, coding: 95, image_understanding: 38, realtime_search: 20, transcription: 20, image_generation: 20, slide_creation: 15, ideation: 38, japanese: 58, agent: 95, cost: 55 },
     fit:    { minutes: 20, slides: 20, coding: 98, transcription: 20, research: 38, writing: 38, data: 62, translation: 38, image: 20, ideation: 38 },
     freeAdjust: {
       scores: { cost: +40 },
@@ -252,7 +254,7 @@ const TOOLS_RAW = [
     paid:  { plan: '将来有料化予定', note: 'ベータ終了後は従量課金または月額プランになる予定（詳細未発表）。' },
     url: 'https://jules.google.com',
     scores: { quality: 78, speed: 72, cost: 68, usability: 68, integration: 78, versatility: 42 },
-    caps:   { long_text: 38, coding: 90, image_understanding: 60, realtime_search: 38, transcription: 20, image_generation: 20, japanese: 60, agent: 95, cost: 68 },
+    caps:   { long_text: 38, coding: 90, image_understanding: 60, realtime_search: 38, transcription: 20, image_generation: 20, slide_creation: 15, ideation: 55, japanese: 60, agent: 95, cost: 68 },
     fit:    { minutes: 20, slides: 20, coding: 92, transcription: 20, research: 38, writing: 38, data: 60, translation: 38, image: 20, ideation: 58 },
     freeAdjust: { scores: {}, caps: {}, fit: {} },
   },
@@ -267,11 +269,11 @@ const TOOLS_RAW = [
     paid:  { plan: 'M365 Copilot（$30/月）', note: 'Word/Excel/Teams/Outlook との完全統合、企業データへのアクセス、Power Platform 連携。' },
     url: 'https://copilot.microsoft.com',
     scores: { quality: 80, speed: 78, cost: 48, usability: 90, integration: 95, versatility: 78 },
-    caps:   { long_text: 80, coding: 62, image_understanding: 80, realtime_search: 80, transcription: 80, image_generation: 80, japanese: 80, agent: 78, cost: 55 },
+    caps:   { long_text: 80, coding: 62, image_understanding: 80, realtime_search: 80, transcription: 80, image_generation: 80, slide_creation: 90, ideation: 78, japanese: 80, agent: 78, cost: 55 },
     fit:    { minutes: 95, slides: 98, coding: 62, transcription: 80, research: 80, writing: 92, data: 95, translation: 92, image: 80, ideation: 80 },
     freeAdjust: {
       scores: { quality: -20, integration: -35, versatility: -20 },
-      caps:   { agent: -25, coding: -20 },
+      caps:   { agent: -25, coding: -20, slide_creation: -35, ideation: -20 },
       fit:    { slides: -35, data: -35, writing: -20 },
     },
   },
@@ -286,11 +288,11 @@ const TOOLS_RAW = [
     paid:  { plan: 'Plus（$8〜/月）', note: '無制限 AI 生成、透かしなし、カスタムフォント・ドメイン、ビデオプレゼン機能。' },
     url: 'https://gamma.app',
     scores: { quality: 82, speed: 90, cost: 58, usability: 95, integration: 58, versatility: 38 },
-    caps:   { long_text: 60, coding: 20, image_understanding: 38, realtime_search: 38, transcription: 20, image_generation: 80, japanese: 80, agent: 60, cost: 60 },
+    caps:   { long_text: 60, coding: 20, image_understanding: 38, realtime_search: 38, transcription: 20, image_generation: 80, slide_creation: 98, ideation: 78, japanese: 80, agent: 60, cost: 60 },
     fit:    { minutes: 20, slides: 98, coding: 20, transcription: 20, research: 38, writing: 65, data: 38, translation: 62, image: 65, ideation: 80 },
     freeAdjust: {
       scores: { quality: -15, versatility: -15 },
-      caps:   { image_generation: -20 },
+      caps:   { image_generation: -20, slide_creation: -20, ideation: -15 },
       fit:    { slides: -20, ideation: -20 },
     },
   },
@@ -306,9 +308,9 @@ const TOOLS_RAW = [
     paid:  { plan: 'Pro（$15/月）', note: 'AI機能500クレジット/月、140M+ プレミアムテンプレート、Brand Kit、1TB ストレージ。' },
     url: 'https://www.canva.com',
     scores:  { quality: 78, speed: 92, cost: 72, usability: 98, integration: 65, versatility: 70 },
-    caps:    { long_text: 38, coding: 5, image_understanding: 42, realtime_search: 20, transcription: 20, image_generation: 78, japanese: 72, agent: 22, cost: 72 },
+    caps:    { long_text: 38, coding: 5, image_understanding: 42, realtime_search: 20, transcription: 20, image_generation: 78, slide_creation: 95, ideation: 72, japanese: 72, agent: 22, cost: 72 },
     fit:     { minutes: 20, slides: 98, coding: 5, transcription: 20, research: 20, writing: 45, data: 22, translation: 38, image: 80, ideation: 75 },
-    freeAdjust: { scores: { cost: +20 }, caps: { image_generation: -20, cost: +20 }, fit: { slides: -15 } },
+    freeAdjust: { scores: { cost: +20 }, caps: { image_generation: -20, slide_creation: -20, cost: +20 }, fit: { slides: -15 } },
   },
   {
     id: 'otterai', name: 'Otter.ai', vendor: 'Otter.ai', type: '議事録・文字起こし',
@@ -321,7 +323,7 @@ const TOOLS_RAW = [
     paid:  { plan: 'Pro（$16.99/月）', note: '文字起こし6000分/月、自動参加無制限、リアルタイム翻訳（β）、カスタム語彙。' },
     url: 'https://otter.ai',
     scores: { quality: 80, speed: 82, cost: 60, usability: 90, integration: 75, versatility: 35 },
-    caps:   { long_text: 38, coding: 20, image_understanding: 20, realtime_search: 20, transcription: 98, image_generation: 20, japanese: 60, agent: 38, cost: 60 },
+    caps:   { long_text: 38, coding: 20, image_understanding: 20, realtime_search: 20, transcription: 98, image_generation: 20, slide_creation: 15, ideation: 20, japanese: 60, agent: 38, cost: 60 },
     fit:    { minutes: 98, slides: 20, coding: 20, transcription: 98, research: 38, writing: 38, data: 38, translation: 60, image: 20, ideation: 20 },
     freeAdjust: {
       scores: { quality: -15, versatility: -15 },
