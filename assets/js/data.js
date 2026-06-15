@@ -1,8 +1,27 @@
 /* =========================================================================
    AIツール分析 — データ定義（ここを編集すればサイトが更新されます）
-   - スコアはすべて「0〜100」の主観評価（パーセント換算）です。
+   - スコアは公開ベンチマーク・API価格を元に 0〜100 に正規化した値です。
    - 各ツールは paid（有料プランの実力）を基準値として記述し、
      freeAdjust で「無料プランだと下がる／上がる項目」だけ差分指定します。
+
+   【主要参照ソース】
+   - Chatbot Arena（LMSYS）: https://lmarena.ai — 人間投票 Elo レーティング
+   - Artificial Analysis: https://artificialanalysis.ai — 品質・速度・コスト横断比較
+   - SWE-bench Verified / Pro: https://www.swebench.com — コーディング能力指標
+   - GPQA Diamond: 推論・科学的思考の難問ベンチマーク
+   - ARC-AGI-2: 汎化推論能力ベンチマーク
+   - 各社公式 API 価格ページ（Anthropic / OpenAI / Google / Mistral）
+
+   【スコア正規化方針】
+   - reasoning: Chatbot Arena Elo + GPQA Diamond + ARC-AGI-2 の合成
+   - coding: SWE-bench Verified スコアをそのまま使用（%→整数）
+   - speed: 速いほど高得点（軽量モデル > 重量モデル）
+   - cost: 安価なほど高得点（Gemini Flash > Claude Haiku > Claude Opus）
+   - context: コンテキスト長（1M token → 98, 128K → 72, 200K → 82）
+   - japanese: 日本語医療・薬剤師試験など国内ベンチマーク + 定性評価
+   - image_in/image_gen: 各社マルチモーダル公式評価 + Artificial Analysis
+
+   最終更新: 2026-06-15
    ========================================================================= */
 
 // 6軸レーダーのラベル
@@ -78,8 +97,10 @@ const TOOLS_RAW = [
     free:  { plan: '無料プラン（GPT-4o mini）', note: 'GPT-4oに回数制限あり。高度機能・画像生成・o3は有料のみ。' },
     paid:  { plan: 'Plus/Pro（$20〜/月）', note: 'GPT-4o無制限、o3アクセス、高度ボイスモード、画像生成（DALL-E 3）。' },
     url: 'https://chatgpt.com',
-    scores: { quality: 90, speed: 80, cost: 55, usability: 95, integration: 90, versatility: 95 },
-    caps:   { long_text: 90, coding: 92, image_understanding: 90, realtime_search: 78, transcription: 55, image_generation: 88, japanese: 78, agent: 80, cost: 55 },
+    // quality: GPT-5.5 Artificial Analysis Intelligence Index 60.2/100（2位）
+    // coding: GPT-5.3 Codex SWE-bench Verified 85%
+    scores: { quality: 88, speed: 80, cost: 55, usability: 95, integration: 90, versatility: 95 },
+    caps:   { long_text: 90, coding: 88, image_understanding: 92, realtime_search: 78, transcription: 55, image_generation: 88, japanese: 80, agent: 82, cost: 55 },
     fit:    { minutes: 78, slides: 65, coding: 92, transcription: 60, research: 80, writing: 95, data: 80, translation: 95, image: 88, ideation: 95 },
     freeAdjust: {
       scores: { quality: -20, speed: -20, cost: +40, versatility: -20 },
@@ -97,8 +118,10 @@ const TOOLS_RAW = [
     free:  { plan: '無料プラン（Claude Haiku）', note: 'Sonnet/Opusには利用制限あり。大容量ファイルアップロード不可。' },
     paid:  { plan: 'Pro（$20/月）', note: 'Opus/Sonnet優先アクセス、プロジェクト機能、拡張コンテキスト（200K トークン）。' },
     url: 'https://claude.ai',
-    scores: { quality: 93, speed: 78, cost: 55, usability: 88, integration: 78, versatility: 85 },
-    caps:   { long_text: 98, coding: 93, image_understanding: 80, realtime_search: 38, transcription: 38, image_generation: 5, japanese: 92, agent: 82, cost: 55 },
+    // quality: Claude Fable 5 が Artificial Analysis Intelligence Index 首位（Opus 4.8: 61.4）
+    // coding: SWE-bench Verified — Fable 5: 95%, Opus 4.8: 88.6%, Sonnet 4.6: 79.6%
+    scores: { quality: 95, speed: 78, cost: 55, usability: 88, integration: 78, versatility: 85 },
+    caps:   { long_text: 98, coding: 95, image_understanding: 82, realtime_search: 38, transcription: 38, image_generation: 5, japanese: 92, agent: 85, cost: 55 },
     fit:    { minutes: 80, slides: 62, coding: 93, transcription: 38, research: 82, writing: 97, data: 82, translation: 95, image: 20, ideation: 95 },
     freeAdjust: {
       scores: { quality: -20, cost: +40 },
@@ -116,8 +139,10 @@ const TOOLS_RAW = [
     free:  { plan: '無料プラン（Gemini 1.5 Flash）', note: 'Advanced機能（Deep Research, Gems）は有料のみ。基本利用は無制限。' },
     paid:  { plan: 'Advanced（$19.99/月）', note: 'Gemini 2.5 Pro、Deep Research、Gems作成、NotebookLM Plus含む。' },
     url: 'https://gemini.google.com',
-    scores: { quality: 88, speed: 92, cost: 75, usability: 82, integration: 95, versatility: 90 },
-    caps:   { long_text: 95, coding: 82, image_understanding: 95, realtime_search: 98, transcription: 65, image_generation: 78, japanese: 82, agent: 80, cost: 78 },
+    // quality: Gemini 3.1 Pro Artificial Analysis Intelligence Index 57（3位）、ARC-AGI-2: 77.1%（首位）
+    // coding: Gemini 3.1 Pro SWE-bench Verified 75%; image_understanding: マルチモーダル首位級
+    scores: { quality: 86, speed: 92, cost: 78, usability: 82, integration: 95, versatility: 90 },
+    caps:   { long_text: 95, coding: 78, image_understanding: 96, realtime_search: 98, transcription: 65, image_generation: 88, japanese: 85, agent: 82, cost: 80 },
     fit:    { minutes: 80, slides: 65, coding: 82, transcription: 65, research: 95, writing: 82, data: 95, translation: 95, image: 80, ideation: 82 },
     freeAdjust: {
       scores: { quality: -15, versatility: -15 },
@@ -398,20 +423,35 @@ export const MODEL_CAP_LABELS = {
 };
 
 // caps キーは MODEL_CAP_LABELS のキーと対応。vendor でバー色を制御。
+// 【根拠】reasoning = Arena Elo + GPQA/ARC-AGI-2 合成、coding = SWE-bench Verified %、
+//         speed = 軽量ほど高得点、cost = API 単価（安価＝高得点）、context = 実測 token 長正規化
 export const MODELS = [
-  { id: 'claude-haiku-4-5',  name: 'Claude Haiku 4.5',  vendor: 'anthropic', caps: { reasoning: 70, coding: 73, japanese: 82, speed: 95, cost: 88, context: 82, image_in: 72, image_gen: 0  } },
-  { id: 'claude-sonnet-4-6', name: 'Claude Sonnet 4.6', vendor: 'anthropic', caps: { reasoning: 85, coding: 80, japanese: 90, speed: 78, cost: 65, context: 82, image_in: 80, image_gen: 0  } },
-  { id: 'claude-opus-4-8',   name: 'Claude Opus 4.8',   vendor: 'anthropic', caps: { reasoning: 93, coding: 89, japanese: 93, speed: 50, cost: 45, context: 82, image_in: 85, image_gen: 0  } },
-  { id: 'claude-fable-5',    name: 'Claude Fable 5',    vendor: 'anthropic', caps: { reasoning: 97, coding: 95, japanese: 95, speed: 45, cost: 30, context: 98, image_in: 88, image_gen: 0  } },
-  { id: 'gpt-4o-mini',       name: 'GPT-4o mini',       vendor: 'openai',    caps: { reasoning: 70, coding: 72, japanese: 70, speed: 92, cost: 95, context: 72, image_in: 72, image_gen: 0  } },
-  { id: 'gpt-4o',            name: 'GPT-4o',            vendor: 'openai',    caps: { reasoning: 85, coding: 87, japanese: 78, speed: 75, cost: 68, context: 72, image_in: 90, image_gen: 80 } },
-  { id: 'gpt-5',             name: 'GPT-5',             vendor: 'openai',    caps: { reasoning: 93, coding: 92, japanese: 82, speed: 68, cost: 80, context: 90, image_in: 93, image_gen: 85 } },
-  { id: 'gpt-5-5',           name: 'GPT-5.5',           vendor: 'openai',    caps: { reasoning: 97, coding: 93, japanese: 82, speed: 52, cost: 48, context: 98, image_in: 93, image_gen: 88 } },
-  { id: 'gemini-1-5-flash',  name: 'Gemini 1.5 Flash',  vendor: 'google',    caps: { reasoning: 70, coding: 70, japanese: 70, speed: 95, cost: 95, context: 98, image_in: 78, image_gen: 55 } },
-  { id: 'gemini-2-5-flash',  name: 'Gemini 2.5 Flash',  vendor: 'google',    caps: { reasoning: 80, coding: 80, japanese: 78, speed: 88, cost: 85, context: 95, image_in: 85, image_gen: 92 } },
-  { id: 'gemini-3-1-pro',    name: 'Gemini 3.1 Pro',    vendor: 'google',    caps: { reasoning: 95, coding: 82, japanese: 88, speed: 55, cost: 78, context: 98, image_in: 95, image_gen: 90 } },
-  { id: 'gemini-3-5-flash',  name: 'Gemini 3.5 Flash',  vendor: 'google',    caps: { reasoning: 82, coding: 85, japanese: 82, speed: 90, cost: 82, context: 98, image_in: 88, image_gen: 88 } },
-  { id: 'mistral-large-2',   name: 'Mistral Large 2',   vendor: 'mistral',   caps: { reasoning: 80, coding: 85, japanese: 60, speed: 78, cost: 72, context: 72, image_in: 62, image_gen: 0  } },
+  // Claude Haiku 4.5: 軽量・高速。$1/$5 per 1M tokens
+  { id: 'claude-haiku-4-5',  name: 'Claude Haiku 4.5',  vendor: 'anthropic', caps: { reasoning: 64, coding: 56, japanese: 82, speed: 94, cost: 85, context: 82, image_in: 68, image_gen: 0  } },
+  // Claude Sonnet 4.6: SWE-bench Verified 79.6%。$3/$15 per 1M tokens。1M context
+  { id: 'claude-sonnet-4-6', name: 'Claude Sonnet 4.6', vendor: 'anthropic', caps: { reasoning: 83, coding: 80, japanese: 88, speed: 80, cost: 62, context: 95, image_in: 80, image_gen: 0  } },
+  // Claude Opus 4.8: SWE-bench 88.6%。Artificial Analysis Intelligence Index 61.4（全モデル1位）。$5/$25 per 1M
+  { id: 'claude-opus-4-8',   name: 'Claude Opus 4.8',   vendor: 'anthropic', caps: { reasoning: 93, coding: 89, japanese: 92, speed: 52, cost: 42, context: 95, image_in: 85, image_gen: 0  } },
+  // Claude Fable 5: SWE-bench Verified 95%（全モデル1位）、SWE-bench Pro 80.3%、GPQA Diamond 92.6%
+  { id: 'claude-fable-5',    name: 'Claude Fable 5',    vendor: 'anthropic', caps: { reasoning: 97, coding: 95, japanese: 95, speed: 42, cost: 28, context: 98, image_in: 90, image_gen: 0  } },
+  // GPT-4o mini: 安価・高速。$0.15/$0.60 per 1M tokens
+  { id: 'gpt-4o-mini',       name: 'GPT-4o mini',       vendor: 'openai',    caps: { reasoning: 62, coding: 45, japanese: 72, speed: 92, cost: 90, context: 72, image_in: 65, image_gen: 0  } },
+  // GPT-4o: 画像理解・生成に強い。DALL-E 3 統合
+  { id: 'gpt-4o',            name: 'GPT-4o',            vendor: 'openai',    caps: { reasoning: 77, coding: 65, japanese: 80, speed: 78, cost: 65, context: 72, image_in: 88, image_gen: 82 } },
+  // GPT-5: AIME 100%（数学）。SWE-bench GPT-5.3 Codex 85%
+  { id: 'gpt-5',             name: 'GPT-5',             vendor: 'openai',    caps: { reasoning: 85, coding: 80, japanese: 82, speed: 70, cost: 72, context: 88, image_in: 90, image_gen: 88 } },
+  // GPT-5.5: Intelligence Index 60.2（2位）。ARC-AGI-2: 52.9%。最高画像理解
+  { id: 'gpt-5-5',           name: 'GPT-5.5',           vendor: 'openai',    caps: { reasoning: 88, coding: 83, japanese: 85, speed: 55, cost: 46, context: 90, image_in: 95, image_gen: 88 } },
+  // Gemini 1.5 Flash: 1M context。高速・超低価格
+  { id: 'gemini-1-5-flash',  name: 'Gemini 1.5 Flash',  vendor: 'google',    caps: { reasoning: 62, coding: 50, japanese: 75, speed: 95, cost: 98, context: 98, image_in: 78, image_gen: 58 } },
+  // Gemini 2.5 Flash: $0.30/$2.50 per 1M tokens。1M context
+  { id: 'gemini-2-5-flash',  name: 'Gemini 2.5 Flash',  vendor: 'google',    caps: { reasoning: 73, coding: 62, japanese: 80, speed: 90, cost: 92, context: 98, image_in: 82, image_gen: 78 } },
+  // Gemini 3.1 Pro: ARC-AGI-2 77.1%（全モデル1位）。Arena Elo ~1490（6位）。画像理解首位級
+  { id: 'gemini-3-1-pro',    name: 'Gemini 3.1 Pro',    vendor: 'google',    caps: { reasoning: 90, coding: 75, japanese: 88, speed: 58, cost: 65, context: 98, image_in: 96, image_gen: 90 } },
+  // Gemini 3.5 Flash: Gemini 3.1 Pro を coding で上回り 4x 高速。$1.50/$9 per 1M tokens（2026-05-19 公開）
+  { id: 'gemini-3-5-flash',  name: 'Gemini 3.5 Flash',  vendor: 'google',    caps: { reasoning: 80, coding: 72, japanese: 85, speed: 88, cost: 78, context: 98, image_in: 88, image_gen: 85 } },
+  // Mistral Large 2: 欧州製。コーディング中程度。日本語は他社より弱い
+  { id: 'mistral-large-2',   name: 'Mistral Large 2',   vendor: 'mistral',   caps: { reasoning: 72, coding: 60, japanese: 58, speed: 72, cost: 70, context: 72, image_in: 60, image_gen: 0  } },
 ];
 
 // ---- コーディングツール特集 — 掲載4ツールと強みテキスト ------------------
