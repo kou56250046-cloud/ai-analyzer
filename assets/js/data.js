@@ -206,7 +206,7 @@ const TOOLS_RAW = [
     },
   },
   {
-    id: 'githubcopilot', name: 'GitHub Copilot', vendor: 'GitHub / Microsoft', type: 'コーディング',
+    id: 'githubcopilot', hideFromConsole: true, name: 'GitHub Copilot', vendor: 'GitHub / Microsoft', type: 'コーディング',
     scenes: ['社内'], tags: ['コード補完', '開発支援', 'IDE', 'エージェント'],
     accent: 'cyan',
     icon: 'github',
@@ -225,7 +225,7 @@ const TOOLS_RAW = [
     },
   },
   {
-    id: 'codex', name: 'Codex CLI', vendor: 'OpenAI', type: 'コーディング／自律エージェント',
+    id: 'codex', hideFromConsole: true, name: 'Codex CLI', vendor: 'OpenAI', type: 'コーディング／自律エージェント',
     scenes: ['社内'], tags: ['コード生成', 'エージェント', 'CLI', 'OSS'],
     accent: 'amber',
     icon: 'openai',
@@ -332,7 +332,7 @@ const TOOLS_RAW = [
     },
   },
   {
-    id: 'claudecode', name: 'Claude Code', vendor: 'Anthropic', type: 'コーディングエージェント',
+    id: 'claudecode', hideFromConsole: true, name: 'Claude Code', vendor: 'Anthropic', type: 'コーディングエージェント',
     scenes: ['社内'], tags: ['CLI', 'エージェント', 'ファイル操作', '並列実行'],
     accent: 'amber',
     icon: 'anthropic',
@@ -347,7 +347,7 @@ const TOOLS_RAW = [
     freeAdjust: { scores: {}, caps: {}, fit: {} },
   },
   {
-    id: 'antigravity', name: 'Antigravity', vendor: 'Google', type: 'コーディングエージェント',
+    id: 'antigravity', hideFromConsole: true, name: 'Antigravity', vendor: 'Google', type: 'コーディングエージェント',
     scenes: ['社内'], tags: ['デスクトップ', 'CLI', 'ブラウザ統合', 'マルチエージェント'],
     accent: 'cyan',
     icon: 'google',
@@ -366,7 +366,7 @@ const TOOLS_RAW = [
     },
   },
   {
-    id: 'devin', name: 'Devin', vendor: 'Cognition AI', type: 'コーディングエージェント',
+    id: 'devin', hideFromConsole: true, name: 'Devin', vendor: 'Cognition AI', type: 'コーディングエージェント',
     scenes: ['社内'], tags: ['完全自律', 'Slack連携', '並列VM', 'バックグラウンド'],
     accent: 'amber',
     icon: null,
@@ -395,6 +395,7 @@ export const TOOLS = TOOLS_RAW.map((t) => {
   return {
     id: t.id, name: t.name, vendor: t.vendor, type: t.type,
     scenes: t.scenes, tags: t.tags, accent: t.accent, summary: t.summary,
+    hideFromConsole: t.hideFromConsole || false,
     icon: t.icon || null,
     price: t.price || null,
     url: t.url,
@@ -523,7 +524,6 @@ export const CODING_TOOLS = [
   { id: 'githubcopilot', strength: 'IDE 補完 × エージェント', detail: 'エディタに常駐し、PR作成・テスト生成まで一気通貫。チーム開発との親和性が最高。' },
   { id: 'codex',         strength: 'CLI 自律実行',           detail: 'ターミナルで大規模リファクタ・テスト実行を自律化。OSS で導入コスト0。' },
   { id: 'jules',         strength: 'Issue → PR 自動解決',    detail: 'GitHub Issues をアサインするだけで非同期にバグ修正・PR作成まで完結。' },
-  { id: 'claude',        strength: '長文コード理解力',        detail: '200K トークンの巨大コンテキストで、大規模リポジトリ全体を把握した上での実装が得意。' },
   { id: 'claudecode',    strength: 'コード精度 業界最高',     detail: 'SWE-bench Verified 88.6%（Opus 4.8）で全エージェント中トップ。複雑な本番コードやMVP開発に最適。並列サブエージェント対応。' },
   { id: 'antigravity',   strength: '超高速 × Chrome統合',    detail: '289 tok/s（Claude Codeの4倍速）。1M token コンテキストと Chrome 実ブラウザでUIを操作しながら自律デバッグ。' },
   { id: 'devin',         strength: '完全自律 × 並列VM委任',  detail: 'Slack・GitHub Issues をアサインするだけで複数VMが並行して自律実行。バックログ消化・移行・定型作業の大量処理に特化。' },

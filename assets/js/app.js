@@ -233,6 +233,7 @@ function buildCapTags() {
 function renderBars(animate = true) {
   const host   = $('#bars');
   const ranked = [...TOOLS]
+    .filter((t) => !t.hideFromConsole)
     .map((t) => ({ t, v: t.caps[plan][activeCap] ?? 0 }))
     .sort((a, b) => b.v - a.v);
 
@@ -542,10 +543,11 @@ function renderPricing() {
 
 /* ── HEATMAP ────────────────────────────────────────────────────────── */
 function renderHeatmap() {
-  const host = $('#heatWrap');
-  const head = `<tr><th>用途 \\ ツール</th>${TOOLS.map((t) => `<th>${esc(t.name)}</th>`).join('')}</tr>`;
-  const rows = USECASES.map((u, ri) =>
-    `<tr><th>${esc(u.name)}</th>${TOOLS.map((t, ci) => {
+  const host  = $('#heatWrap');
+  const tools = TOOLS.filter((t) => !t.hideFromConsole);
+  const head  = `<tr><th>用途 \\ ツール</th>${tools.map((t) => `<th>${esc(t.name)}</th>`).join('')}</tr>`;
+  const rows  = USECASES.map((u, ri) =>
+    `<tr><th>${esc(u.name)}</th>${tools.map((t, ci) => {
       const v = t.fit[plan][u.key] ?? 0;
       return `<td><span class="heat-cell" style="background:${heatColor(v)}" data-row="${ri}" data-col="${ci}" title="${esc(t.name)} × ${esc(u.name)}: ${esc(String(v))}%">${esc(String(v))}%</span></td>`;
     }).join('')}</tr>`
