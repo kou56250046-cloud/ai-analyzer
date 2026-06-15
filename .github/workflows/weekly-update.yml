@@ -1,38 +1,41 @@
-name: weekly-update
+name: twice-weekly-news-update
 
-# 毎週月曜 09:00 JST (= 00:00 UTC) にRSS見出しを自動収集する。
-# 外部AIは使わないため、APIキー・課金口座は不要（課金リスク0）。
-# 手動実行も可（workflow_dispatch）。
+# 月曜・木曜 08:00 JST (= 日曜・水曜 23:00 UTC) にニュースを自動更新する。
+# AI不使用 — APIキー・課金口座は一切不要。
+# 手動実行ボタンも利用可（workflow_dispatch）。
 
 on:
   schedule:
-    - cron: "0 0 * * 1"
+    - cron: "0 23 * * 0"   # 月曜 08:00 JST（日曜 23:00 UTC）
+    - cron: "0 23 * * 3"   # 木曜 08:00 JST（水曜 23:00 UTC）
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  collect:
+  update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
 
-      - name: Collect RSS headlines (no AI)
+      - name: RSS 収集（description 含む、AI不使用）
         run: node scripts/fetch_rss.mjs
 
-      - name: Commit if changed
+      - name: ニュース記事整形（AI不使用・キーワード自動分類）
+        run: node scripts/update_news.mjs
+
+      - name: 変更があればコミット & プッシュ
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data/news_inbox.json)" ]; then
-            git add data/news_inbox.json
-            git commit -m "chore: weekly RSS headlines $(date -u +%Y-%m-%d)"
+          git add data/news_inbox.json data/news-data.js
+          git diff --staged --quiet || (
+            git commit -m "chore: ニュース自動更新 $(date -u +%Y-%m-%d)" &&
             git push
-          else
-            echo "変更なし"
-          fi
+          )
+          echo "完了"

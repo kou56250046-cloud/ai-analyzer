@@ -1,9 +1,9 @@
 /* =========================================================================
-   fetch_rss.mjs — 各AIの公式RSS/Atomから「見出し・リンク・日付」を収集する。
+   fetch_rss.mjs — 各AIの公式RSS/Atomから「見出し・リンク・日付・概要」を収集する。
    - 外部AIは一切使わない（＝無料・課金リスク0）。
    - 依存パッケージなし（Node 18+ の組み込み fetch を使用）。
-   - 取得結果は data/news_inbox.json に「未処理」として保存。
-     → 重要なものを選んで data/js/data.js の NEWS に要約付きで追記する運用。
+   - 取得結果は data/news_inbox.json に保存。
+     → update_news.mjs が整形して data/news-data.js に書き出す。
    実行: node scripts/fetch_rss.mjs
    ========================================================================= */
 import { readFile, writeFile } from 'node:fs/promises';
@@ -32,9 +32,10 @@ function pickLink(xml) {
 function parseItems(xml) {
   const blocks = xml.match(/<(item|entry)[\s\S]*?<\/\1>/gi) || [];
   return blocks.map((b) => ({
-    title: pick(b, 'title'),
-    url: pickLink(b),
-    date: (pick(b, 'pubDate') || pick(b, 'updated') || pick(b, 'published') || '').slice(0, 33),
+    title:       pick(b, 'title'),
+    url:         pickLink(b),
+    date:        (pick(b, 'pubDate') || pick(b, 'updated') || pick(b, 'published') || '').slice(0, 33),
+    description: (pick(b, 'description') || pick(b, 'summary') || '').slice(0, 300),
   })).filter((i) => i.title);
 }
 

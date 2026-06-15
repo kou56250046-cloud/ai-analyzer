@@ -33,7 +33,7 @@ const VALID_NEWS_CATS = new Set(['new_feature', 'update', 'pricing', 'integratio
 const safeClass = (c) => VALID_NEWS_CATS.has(c) ? c : 'update';
 
 function heatColor(v) {
-  const t = Math.max(0, Math.min(5, v)) / 5;
+  const t = Math.max(0, Math.min(100, v)) / 100;
   return `rgba(79,214,255,${(0.12 + t * 0.85).toFixed(2)})`;
 }
 
@@ -225,10 +225,10 @@ function renderBars(animate = true) {
       <div class="bar-rank">${String(i + 1).padStart(2, '0')}</div>
       <div class="bar-name">${esc(row.t.name)}</div>
       <div class="bar-track"><div class="bar-fill${plan === 'paid' ? ' paid' : ''}${i === 0 ? ' top-bar' : ''}"></div></div>
-      <div class="bar-val">${esc(row.v.toFixed(1))}</div>`;
+      <div class="bar-val">${row.v}%</div>`;
     host.appendChild(r);
     const fill = r.querySelector('.bar-fill');
-    const pct  = (row.v / 5) * 100;
+    const pct  = row.v;
     if (animate) {
       fill.style.transitionDelay = `${i * 0.045}s`;
       requestAnimationFrame(() => requestAnimationFrame(() => { fill.style.width = pct + '%'; }));
@@ -329,7 +329,7 @@ function renderHeatmap() {
   const rows = USECASES.map((u, ri) =>
     `<tr><th>${esc(u.name)}</th>${TOOLS.map((t, ci) => {
       const v = t.fit[plan][u.key] ?? 0;
-      return `<td><span class="heat-cell" style="background:${heatColor(v)}" data-row="${ri}" data-col="${ci}" title="${esc(t.name)} × ${esc(u.name)}: ${esc(String(v))}">${esc(String(v))}</span></td>`;
+      return `<td><span class="heat-cell" style="background:${heatColor(v)}" data-row="${ri}" data-col="${ci}" title="${esc(t.name)} × ${esc(u.name)}: ${esc(String(v))}%">${esc(String(v))}%</span></td>`;
     }).join('')}</tr>`
   ).join('');
   host.innerHTML = `<table class="heat"><thead>${head}</thead><tbody>${rows}</tbody></table>`;
@@ -445,8 +445,8 @@ function drawRadar(t) {
       },
       scales: {
         r: {
-          min: 0, max: 5,
-          ticks: { stepSize: 1, color: '#5b6480', backdropColor: 'transparent', font: { size: 9 } },
+          min: 0, max: 100,
+          ticks: { stepSize: 20, color: '#5b6480', backdropColor: 'transparent', font: { size: 9 } },
           grid: { color: 'rgba(255,255,255,0.10)' },
           angleLines: { color: 'rgba(255,255,255,0.10)' },
           pointLabels: { color: '#8a94ad', font: { family: 'Noto Sans JP', size: 12 } },
@@ -471,6 +471,7 @@ function wireReveal() {
       if (id === 'workflows') $('#wfGrid').classList.add('animated');
       if (id === 'news') {
         $$('.news-item').forEach((item, i) => {
+          if (item.classList.contains('news-hidden')) return;
           setTimeout(() => {
             item.style.opacity = '';
             item.classList.add('news-reveal');
@@ -483,6 +484,49 @@ function wireReveal() {
     { threshold: 0.1 }
   );
   $$('.reveal').forEach((n) => io.observe(n));
+}
+
+/* ── NEWS TOGGLE ────────────────────────────────────────────────────── */
+const COLLAPSED_COUNT = 4;
+
+function initNewsToggle() {
+  const items = $$('.news-item');
+  const fold  = $('#newsFold');
+  const btn   = $('#newsToggle');
+  const lbl   = $('#newsToggleLabel');
+
+  if (!fold || !btn) return;
+  if (items.length <= COLLAPSED_COUNT) { fold.hidden = true; return; }
+
+  items.forEach((item, i) => {
+    if (i >= COLLAPSED_COUNT) item.classList.add('news-hidden');
+  });
+
+  let isOpen = false;
+  btn.addEventListener('click', () => {
+    isOpen = !isOpen;
+    btn.classList.toggle('expanded', isOpen);
+    lbl.textContent = isOpen ? '折りたたむ' : 'もっと見る';
+
+    items.forEach((item, i) => {
+      if (i < COLLAPSED_COUNT) return;
+      const rel = i - COLLAPSED_COUNT;
+      if (isOpen) {
+        item.classList.remove('news-hidden');
+        item.classList.remove('news-reveal');
+        item.style.setProperty('--i', rel);
+        void item.offsetWidth;
+        setTimeout(() => {
+          item.style.opacity = '';
+          item.classList.add('news-reveal');
+        }, rel * 80);
+      } else {
+        item.classList.add('news-hidden');
+        item.style.opacity = '0';
+        item.classList.remove('news-reveal');
+      }
+    });
+  });
 }
 
 /* ── NAV BURGER ─────────────────────────────────────────────────────── */
@@ -504,6 +548,7 @@ renderTools();
 initToolCard3D();
 renderHeatmap();
 renderNews();
+initNewsToggle();
 renderWorkflows();
 wireReveal();
 wireNav();

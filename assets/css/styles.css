@@ -486,6 +486,38 @@ footer .mono { color: var(--faint); }
   }
 }
 
+/* ============================ NEWS TOGGLE ============================ */
+.news-item.news-hidden { display: none; }
+
+.news-fold {
+  text-align: center;
+  margin-top: 24px;
+}
+.news-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: .06em;
+  color: var(--cyan);
+  border: 1px solid rgba(79,214,255,0.35);
+  background: transparent;
+  padding: 10px 28px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color .25s, box-shadow .25s, color .25s;
+}
+.news-toggle-btn:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 0 18px rgba(79,214,255,0.22);
+}
+.news-toggle-arrow {
+  display: inline-block;
+  transition: transform .35s cubic-bezier(.22,1,.36,1);
+}
+.news-toggle-btn.expanded .news-toggle-arrow { transform: rotate(180deg); }
+
 /* ============================ RESPONSIVE ============================ */
 @media (max-width: 760px) {
   .nav-links { position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--ink-1); border-bottom: 1px solid var(--line); display: none; }
