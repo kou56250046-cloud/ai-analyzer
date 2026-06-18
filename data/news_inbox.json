@@ -1,5 +1,126 @@
 {
-  "fetched_at": "",
-  "count": 0,
-  "items": []
+  "fetched_at": "2026-06-18",
+  "count": 15,
+  "items": [
+    {
+      "tool": "OpenAI",
+      "title": "A near-autonomous AI chemist improves a challenging reaction in medicinal chemistry",
+      "url": "https://openai.com/index/ai-chemist-improves-reaction",
+      "date": "Wed, 17 Jun 2026 10:00:00 GMT",
+      "description": "OpenAI and Molecule.one show how a near-autonomous AI chemist using GPT-5.4 improved a key drug-making reaction, advancing medicinal chemistry research.",
+      "status": "未処理"
+    },
+    {
+      "tool": "OpenAI",
+      "title": "Introducing LifeSciBench",
+      "url": "https://openai.com/index/introducing-life-sci-bench",
+      "date": "Wed, 17 Jun 2026 00:00:00 GMT",
+      "description": "Introducing LifeSciBench, an expert-authored, expert-reviewed benchmark for evaluating how AI systems handle real-world life science research tasks and decisions.",
+      "status": "未処理"
+    },
+    {
+      "tool": "OpenAI",
+      "title": "Predicting model behavior before release by simulating deployment",
+      "url": "https://openai.com/index/deployment-simulation",
+      "date": "Tue, 16 Jun 2026 00:00:00 GMT",
+      "description": "OpenAI introduces Deployment Simulation, a method to predict AI model behavior before deployment using real conversation data to improve safety and evaluation accuracy.",
+      "status": "未処理"
+    },
+    {
+      "tool": "OpenAI",
+      "title": "Introducing the OpenAI Partner Network",
+      "url": "https://openai.com/index/introducing-openai-partner-network",
+      "date": "Sun, 14 Jun 2026 17:00:00 GMT",
+      "description": "OpenAI launches the Partner Network, investing $150M to help global partners accelerate enterprise AI adoption, deployment, and transformation.",
+      "status": "未処理"
+    },
+    {
+      "tool": "OpenAI",
+      "title": "New OpenAI Academy courses for the next era of work",
+      "url": "https://openai.com/index/academy-courses-applying-ai-at-work",
+      "date": "Fri, 12 Jun 2026 10:00:00 GMT",
+      "description": "OpenAI introduces three Academy courses that help people build practical AI skills, create repeatable workflows, and apply agents in everyday work.",
+      "status": "未処理"
+    },
+    {
+      "tool": "Google AI",
+      "title": "New research shows how AMIE, our medical AI, could help manage health conditions.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-for-disease-management-in-nature/",
+      "date": "Wed, 17 Jun 2026 15:00:00 +0000",
+      "description": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AMIE_Mx_Nature_Social_Visual_Va.max-600x600.format-webp.webp\">Research in “Nature” shows our conversational AI system matches primary care physicians in complex disease management.",
+      "status": "未処理"
+    },
+    {
+      "tool": "Google AI",
+      "title": "We’re strengthening our presence in Alabama through new investments and community support.",
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/",
+      "date": "Mon, 15 Jun 2026 15:00:00 +0000",
+      "description": "Google has announced a $1.5 billion investment for 2026 and 2027 to expand its data center campus in Jackson County, Alabama. Operating since 2019 on a repurposed former…",
+      "status": "未処理"
+    },
+    {
+      "tool": "Google AI",
+      "title": "Our new community investments in Virginia support local jobs and expand energy affordability.",
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/virginia-community-investments/",
+      "date": "Thu, 11 Jun 2026 20:00:00 +0000",
+      "description": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/VirginiaSocial.max-600x600.format-webp.webp\">We’re helping build the state’s next-generation workforce and investing in energy programs.",
+      "status": "未処理"
+    },
+    {
+      "tool": "Google AI",
+      "title": "The latest AI news we announced in May 2026",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/",
+      "date": "Fri, 05 Jun 2026 14:45:00 +0000",
+      "description": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/May_AI_Recap_still.max-600x600.format-webp.webp\">Here are Google’s latest AI updates from May 2026",
+      "status": "未処理"
+    },
+    {
+      "tool": "Google AI",
+      "title": "5 ways Google Search can level up your thrift and vintage shopping",
+      "url": "https://blog.google/products-and-platforms/products/search/thrifting-tips/",
+      "date": "Wed, 03 Jun 2026 13:00:00 +0000",
+      "description": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Thrifting_Header.max-600x600.format-webp.webp\">Uncover second-hand scores with AI tools in Google Search and Shopping.",
+      "status": "未処理"
+    },
+    {
+      "tool": "GitHub",
+      "title": "Read remote repository content with GitHub CLI",
+      "url": "https://github.blog/changelog/2026-06-17-read-remote-repository-content-with-github-cli",
+      "date": "Wed, 17 Jun 2026 20:03:57 +0000",
+      "description": "Explore repository content from your terminal without cloning by using two new commands: gh repo read-file and gh repo read-dir. What you can do Use gh repo read-file to read&#8230;\nThe post Read remote repository content with GitHub CLI appeared first on The GitHub Blog.",
+      "status": "未処理"
+    },
+    {
+      "tool": "GitHub",
+      "title": "Secret scanning updates &#8211; June 2026",
+      "url": "https://github.blog/changelog/2026-06-17-secret-scanning-updates-june-2026",
+      "date": "Wed, 17 Jun 2026 19:23:42 +0000",
+      "description": "Since our last pattern update, we&#8217;ve expanded secret scanning&#8217;s detection coverage with new partners, more patterns blocked by push protection by default, additional validity checks, and richer metadata for leaked&#8230;\nThe post Secret scanning updates &#8211; June 2026 appeared first o",
+      "status": "未処理"
+    },
+    {
+      "tool": "GitHub",
+      "title": "Enterprise-managed settings now support bypass permission controls",
+      "url": "https://github.blog/changelog/2026-06-17-enterprise-managed-settings-now-support-bypass-permission-controls",
+      "date": "Wed, 17 Jun 2026 17:13:47 +0000",
+      "description": "We&#8217;re adding our first governance capability to the enterprise-managed settings configuration. Enterprise administrators can now set disableBypassPermissionsMode to \"disable\" in the enterprise-managed settings.json to prevent GitHub Copilot CLI and VS&#8230;\nThe post Enterprise-managed setting",
+      "status": "未処理"
+    },
+    {
+      "tool": "GitHub",
+      "title": "Auto mode in Copilot Chat available for all users",
+      "url": "https://github.blog/changelog/2026-06-17-auto-mode-in-copilot-chat-available-for-all-users",
+      "date": "Wed, 17 Jun 2026 16:24:33 +0000",
+      "description": "GitHub Copilot auto model selection is now generally available in Copilot Chat on github.com and the GitHub mobile app for all Copilot plans. With auto, Copilot chooses a model on&#8230;\nThe post Auto mode in Copilot Chat available for all users appeared first on The GitHub Blog.",
+      "status": "未処理"
+    },
+    {
+      "tool": "GitHub",
+      "title": "Limit open pull requests for users without write access",
+      "url": "https://github.blog/changelog/2026-06-17-limit-open-pull-requests-for-users-without-write-access",
+      "date": "Wed, 17 Jun 2026 16:23:56 +0000",
+      "description": "Maintainers of open source repositories are dealing with an ever-growing volume of pull requests, including repeated low-quality or drive-by contributions that can slow triage and overwhelm review queues. To help&#8230;\nThe post Limit open pull requests for users without write access appeared first ",
+      "status": "未処理"
+    }
+  ]
 }

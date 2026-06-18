@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>AIツール分析 — 最新アップデート</title>
+    <link>https://kou56250046-cloud.github.io/AI-analyzer</link>
+    <description>生成AI・AIエージェントの最新アップデートを随時配信。新機能・料金変更・連携情報など。</description>
+    <language>ja</language>
+    <atom:link href="https://kou56250046-cloud.github.io/AI-analyzer/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Thu, 18 Jun 2026 00:06:07 GMT</lastBuildDate>
+    <ttl>1440</ttl>
+    
+  <item>
+    <title><![CDATA[GitHub: Read remote repository content with GitHub CLI]]></title>
+    <link>https://github.blog/changelog/2026-06-17-read-remote-repository-content-with-github-cli</link>
+    <description><![CDATA[Explore repository content from your terminal without cloning by using two new commands: gh repo read-file and gh repo read-dir. What you can do Use gh repo read-file to read&#8230;
+The post Read remote repository content with GitHub CLI appeared first on The GitHub Blog.]]></description>
+    <category>update</category>
+    <pubDate>Thu, 18 Jun 2026 00:06:07 GMT</pubDate>
+    <guid isPermaLink="false">https://github.blog/changelog/2026-06-17-read-remote-repository-content-with-github-cli-Wed, 17 Ju</guid>
+  </item>
+  <item>
+    <title><![CDATA[GitHub: Secret scanning updates &#8211; June 2026]]></title>
+    <link>https://github.blog/changelog/2026-06-17-secret-scanning-updates-june-2026</link>
+    <description><![CDATA[Since our last pattern update, we&#8217;ve expanded secret scanning&#8217;s detection coverage with new partners, more patterns blocked by push protection by default, additional validity checks, and richer metadata for leaked&#8230;
+The post Secret scanning updates &#8211; June 2026 appeared first o]]></description>
+    <category>update</category>
+    <pubDate>Thu, 18 Jun 2026 00:06:07 GMT</pubDate>
+    <guid isPermaLink="false">https://github.blog/changelog/2026-06-17-secret-scanning-updates-june-2026-Wed, 17 Ju</guid>
+  </item>
+  <item>
+    <title><![CDATA[GitHub: Enterprise-managed settings now support bypass permission controls]]></title>
+    <link>https://github.blog/changelog/2026-06-17-enterprise-managed-settings-now-support-bypass-permission-controls</link>
+    <description><![CDATA[We&#8217;re adding our first governance capability to the enterprise-managed settings configuration. Enterprise administrators can now set disableBypassPermissionsMode to "disable" in the enterprise-managed settings.json to prevent GitHub Copilot CLI and VS&#8230;
+The post Enterprise-managed setting]]></description>
+    <category>update</category>
+    <pubDate>Thu, 18 Jun 2026 00:06:07 GMT</pubDate>
+    <guid isPermaLink="false">https://github.blog/changelog/2026-06-17-enterprise-managed-settings-now-support-bypass-permission-controls-Wed, 17 Ju</guid>
+  </item>
+  <item>
+    <title><![CDATA[GitHub: Auto mode in Copilot Chat available for all users]]></title>
+    <link>https://github.blog/changelog/2026-06-17-auto-mode-in-copilot-chat-available-for-all-users</link>
+    <description><![CDATA[GitHub Copilot auto model selection is now generally available in Copilot Chat on github.com and the GitHub mobile app for all Copilot plans. With auto, Copilot chooses a model on&#8230;
+The post Auto mode in Copilot Chat available for all users appeared first on The GitHub Blog.]]></description>
+    <category>update</category>
+    <pubDate>Thu, 18 Jun 2026 00:06:07 GMT</pubDate>
+    <guid isPermaLink="false">https://github.blog/changelog/2026-06-17-auto-mode-in-copilot-chat-available-for-all-users-Wed, 17 Ju</guid>
+  </item>
+  <item>
+    <title><![CDATA[GitHub: Limit open pull requests for users without write access]]></title>
+    <link>https://github.blog/changelog/2026-06-17-limit-open-pull-requests-for-users-without-write-access</link>
+    <description><![CDATA[Maintainers of open source repositories are dealing with an ever-growing volume of pull requests, including repeated low-quality or drive-by contributions that can slow triage and overwhelm review queues. To help&#8230;
+The post Limit open pull requests for users without write access appeared first ]]></description>
+    <category>update</category>
+    <pubDate>Thu, 18 Jun 2026 00:06:07 GMT</pubDate>
+    <guid isPermaLink="false">https://github.blog/changelog/2026-06-17-limit-open-pull-requests-for-users-without-write-access-Wed, 17 Ju</guid>
+  </item>
+  <item>
+    <title><![CDATA[Google AI: New research shows how AMIE, our medical AI, could help manage health conditions.]]></title>
+    <link>https://blog.google/innovation-and-ai/models-and-research/google-research/amie-for-disease-management-in-nature/</link>
+    <description><![CDATA[<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AMIE_Mx_Nature_Social_Visual_Va.max-600x600.format-webp.webp">Research in “Nature” shows our conversational AI system matches primary care physicians in complex disease management.]]></description>
+    <category>new_feature</category>
+    <pubDate>Thu, 18 Jun 2026 00:06:07 GMT</pubDate>
+    <guid isPermaLink="false">https://blog.google/innovation-and-ai/models-and-research/google-research/amie-for-disease-management-in-nature/-Wed, 17 Ju</guid>
+  </item>
+  <item>
+    <title><![CDATA[OpenAI: A near-autonomous AI chemist improves a challenging reaction in medicinal chemistry]]></title>
+    <link>https://openai.com/index/ai-chemist-improves-reaction</link>
+    <description><![CDATA[OpenAI and Molecule.one show how a near-autonomous AI chemist using GPT-5.4 improved a key drug-making reaction, advancing medicinal chemistry research.]]></description>
+    <category>update</category>
+    <pubDate>Thu, 18 Jun 2026 00:06:07 GMT</pubDate>
+    <guid isPermaLink="false">https://openai.com/index/ai-chemist-improves-reaction-Wed, 17 Ju</guid>
+  </item>
+  <item>
+    <title><![CDATA[OpenAI: Introducing LifeSciBench]]></title>
+    <link>https://openai.com/index/introducing-life-sci-bench</link>
+    <description><![CDATA[Introducing LifeSciBench, an expert-authored, expert-reviewed benchmark for evaluating how AI systems handle real-world life science research tasks and decisions.]]></description>
+    <category>update</category>
+    <pubDate>Thu, 18 Jun 2026 00:06:07 GMT</pubDate>
+    <guid isPermaLink="false">https://openai.com/index/introducing-life-sci-bench-Wed, 17 Ju</guid>
+  </item>
+  <item>
+    <title><![CDATA[OpenAI: Predicting model behavior before release by simulating deployment]]></title>
+    <link>https://openai.com/index/deployment-simulation</link>
+    <description><![CDATA[OpenAI introduces Deployment Simulation, a method to predict AI model behavior before deployment using real conversation data to improve safety and evaluation accuracy.]]></description>
+    <category>new_feature</category>
+    <pubDate>Thu, 18 Jun 2026 00:06:07 GMT</pubDate>
+    <guid isPermaLink="false">https://openai.com/index/deployment-simulation-Tue, 16 Ju</guid>
+  </item>
+  <item>
+    <title><![CDATA[Google AI: We’re strengthening our presence in Alabama through new investments and community support.]]></title>
+    <link>https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/</link>
+    <description><![CDATA[Google has announced a $1.5 billion investment for 2026 and 2027 to expand its data center campus in Jackson County, Alabama. Operating since 2019 on a repurposed former…]]></description>
+    <category>new_feature</category>
+    <pubDate>Thu, 18 Jun 2026 00:06:07 GMT</pubDate>
+    <guid isPermaLink="false">https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/-Mon, 15 Ju</guid>
+  </item>
+  </channel>
+</rss>
