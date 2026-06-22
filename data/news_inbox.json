@@ -1,45 +1,45 @@
 {
-  "fetched_at": "2026-06-18",
+  "fetched_at": "2026-06-22",
   "count": 15,
   "items": [
+    {
+      "tool": "OpenAI",
+      "title": "Samsung Electronics brings ChatGPT and Codex to employees",
+      "url": "https://openai.com/index/samsung-electronics-chatgpt-codex-deployment",
+      "date": "Sun, 21 Jun 2026 23:00:00 GMT",
+      "description": "Samsung Electronics deploys ChatGPT Enterprise and Codex to employees worldwide, marking one of OpenAI’s largest enterprise AI rollouts.",
+      "status": "未処理"
+    },
+    {
+      "tool": "OpenAI",
+      "title": "New usage analytics and updated spend controls for enterprises",
+      "url": "https://openai.com/index/chatgpt-enterprise-spend-controls",
+      "date": "Thu, 18 Jun 2026 17:00:00 GMT",
+      "description": "OpenAI introduces new spend controls and usage analytics for ChatGPT Enterprise, helping organizations manage costs and scale AI with confidence.",
+      "status": "未処理"
+    },
+    {
+      "tool": "OpenAI",
+      "title": "Improving health intelligence in ChatGPT",
+      "url": "https://openai.com/index/improving-health-intelligence-in-chatgpt",
+      "date": "Thu, 18 Jun 2026 11:00:00 GMT",
+      "description": "Learn how GPT-5.5 Instant improves ChatGPT’s health and wellness responses with stronger reasoning, better context, clearer communication, and physician-informed evaluations.",
+      "status": "未処理"
+    },
+    {
+      "tool": "OpenAI",
+      "title": "Using AI to help physicians diagnose rare genetic diseases affecting children",
+      "url": "https://openai.com/index/diagnose-rare-childhood-diseases",
+      "date": "Thu, 18 Jun 2026 08:00:00 GMT",
+      "description": "Researchers used an OpenAI reasoning model to help diagnose rare diseases, identifying 18 new diagnoses in previously unsolved cases.",
+      "status": "未処理"
+    },
     {
       "tool": "OpenAI",
       "title": "A near-autonomous AI chemist improves a challenging reaction in medicinal chemistry",
       "url": "https://openai.com/index/ai-chemist-improves-reaction",
       "date": "Wed, 17 Jun 2026 10:00:00 GMT",
       "description": "OpenAI and Molecule.one show how a near-autonomous AI chemist using GPT-5.4 improved a key drug-making reaction, advancing medicinal chemistry research.",
-      "status": "未処理"
-    },
-    {
-      "tool": "OpenAI",
-      "title": "Introducing LifeSciBench",
-      "url": "https://openai.com/index/introducing-life-sci-bench",
-      "date": "Wed, 17 Jun 2026 00:00:00 GMT",
-      "description": "Introducing LifeSciBench, an expert-authored, expert-reviewed benchmark for evaluating how AI systems handle real-world life science research tasks and decisions.",
-      "status": "未処理"
-    },
-    {
-      "tool": "OpenAI",
-      "title": "Predicting model behavior before release by simulating deployment",
-      "url": "https://openai.com/index/deployment-simulation",
-      "date": "Tue, 16 Jun 2026 00:00:00 GMT",
-      "description": "OpenAI introduces Deployment Simulation, a method to predict AI model behavior before deployment using real conversation data to improve safety and evaluation accuracy.",
-      "status": "未処理"
-    },
-    {
-      "tool": "OpenAI",
-      "title": "Introducing the OpenAI Partner Network",
-      "url": "https://openai.com/index/introducing-openai-partner-network",
-      "date": "Sun, 14 Jun 2026 17:00:00 GMT",
-      "description": "OpenAI launches the Partner Network, investing $150M to help global partners accelerate enterprise AI adoption, deployment, and transformation.",
-      "status": "未処理"
-    },
-    {
-      "tool": "OpenAI",
-      "title": "New OpenAI Academy courses for the next era of work",
-      "url": "https://openai.com/index/academy-courses-applying-ai-at-work",
-      "date": "Fri, 12 Jun 2026 10:00:00 GMT",
-      "description": "OpenAI introduces three Academy courses that help people build practical AI skills, create repeatable workflows, and apply agents in everyday work.",
       "status": "未処理"
     },
     {
@@ -84,42 +84,42 @@
     },
     {
       "tool": "GitHub",
-      "title": "Read remote repository content with GitHub CLI",
-      "url": "https://github.blog/changelog/2026-06-17-read-remote-repository-content-with-github-cli",
-      "date": "Wed, 17 Jun 2026 20:03:57 +0000",
-      "description": "Explore repository content from your terminal without cloning by using two new commands: gh repo read-file and gh repo read-dir. What you can do Use gh repo read-file to read&#8230;\nThe post Read remote repository content with GitHub CLI appeared first on The GitHub Blog.",
+      "title": "AI credits consumed per user now in the Copilot usage metrics API",
+      "url": "https://github.blog/changelog/2026-06-19-ai-credits-consumed-per-user-now-in-the-copilot-usage-metrics-api",
+      "date": "Fri, 19 Jun 2026 16:23:29 +0000",
+      "description": "The Copilot usage metrics API now reports how many AI credits each user consumed per day, derived from the same AI credits consumption data used in the usage-based billing API.&#8230;\nThe post AI credits consumed per user now in the Copilot usage metrics API appeared first on The GitHub Blog.",
       "status": "未処理"
     },
     {
       "tool": "GitHub",
-      "title": "Secret scanning updates &#8211; June 2026",
-      "url": "https://github.blog/changelog/2026-06-17-secret-scanning-updates-june-2026",
-      "date": "Wed, 17 Jun 2026 19:23:42 +0000",
-      "description": "Since our last pattern update, we&#8217;ve expanded secret scanning&#8217;s detection coverage with new partners, more patterns blocked by push protection by default, additional validity checks, and richer metadata for leaked&#8230;\nThe post Secret scanning updates &#8211; June 2026 appeared first o",
+      "title": "Upcoming deprecation of Opus 4.6 (fast)",
+      "url": "https://github.blog/changelog/2026-06-18-upcoming-deprecation-of-opus-4-6-fast",
+      "date": "Thu, 18 Jun 2026 23:58:34 +0000",
+      "description": "We will deprecate Opus 4.6 (fast) across all GitHub Copilot experiences (including Copilot Chat, inline edits, ask and agent modes, and code completions), on June 29th, 2026: Model Deprecation date&#8230;\nThe post Upcoming deprecation of Opus 4.6 (fast) appeared first on The GitHub Blog.",
       "status": "未処理"
     },
     {
       "tool": "GitHub",
-      "title": "Enterprise-managed settings now support bypass permission controls",
-      "url": "https://github.blog/changelog/2026-06-17-enterprise-managed-settings-now-support-bypass-permission-controls",
-      "date": "Wed, 17 Jun 2026 17:13:47 +0000",
-      "description": "We&#8217;re adding our first governance capability to the enterprise-managed settings configuration. Enterprise administrators can now set disableBypassPermissionsMode to \"disable\" in the enterprise-managed settings.json to prevent GitHub Copilot CLI and VS&#8230;\nThe post Enterprise-managed setting",
+      "title": "MAI-Code-1-Flash available on more Copilot surfaces",
+      "url": "https://github.blog/changelog/2026-06-18-mai-code-1-flash-available-on-more-copilot-surfaces",
+      "date": "Thu, 18 Jun 2026 20:11:24 +0000",
+      "description": "MAI&#8209;Code&#8209;1&#8209;Flash, Microsoft&#8217;s purpose&#8209;built small coding model, is now available across additional GitHub Copilot surfaces. MAI&#8209;Code&#8209;1&#8209;Flash can now be used in: Copilot CLI GitHub Copilot app Copilot Chat on GitHub Visual&#8230;\nThe post MAI-Code-1-Fla",
       "status": "未処理"
     },
     {
       "tool": "GitHub",
-      "title": "Auto mode in Copilot Chat available for all users",
-      "url": "https://github.blog/changelog/2026-06-17-auto-mode-in-copilot-chat-available-for-all-users",
-      "date": "Wed, 17 Jun 2026 16:24:33 +0000",
-      "description": "GitHub Copilot auto model selection is now generally available in Copilot Chat on github.com and the GitHub mobile app for all Copilot plans. With auto, Copilot chooses a model on&#8230;\nThe post Auto mode in Copilot Chat available for all users appeared first on The GitHub Blog.",
+      "title": "Copilot code review: AGENTS.md support and UI improvements",
+      "url": "https://github.blog/changelog/2026-06-18-copilot-code-review-agents-md-support-and-ui-improvements",
+      "date": "Thu, 18 Jun 2026 19:11:51 +0000",
+      "description": "Copilot code review now supports repository-level AGENTS.md files, and it&#8217;s easier to request a review from Copilot on draft pull requests with the Request button. These changes are all generally&#8230;\nThe post Copilot code review: AGENTS.md support and UI improvements appeared first on The G",
       "status": "未処理"
     },
     {
       "tool": "GitHub",
-      "title": "Limit open pull requests for users without write access",
-      "url": "https://github.blog/changelog/2026-06-17-limit-open-pull-requests-for-users-without-write-access",
-      "date": "Wed, 17 Jun 2026 16:23:56 +0000",
-      "description": "Maintainers of open source repositories are dealing with an ever-growing volume of pull requests, including repeated low-quality or drive-by contributions that can slow triage and overwhelm review queues. To help&#8230;\nThe post Limit open pull requests for users without write access appeared first ",
+      "title": "Detecting Duplicate Issues &#8211; Public Preview and issue fields MCP support for GitHub Issues",
+      "url": "https://github.blog/changelog/2026-06-18-duplicate-detection-and-issue-fields-mcp-support-for-github-issues",
+      "date": "Thu, 18 Jun 2026 18:04:33 +0000",
+      "description": "Duplicate issues are one of the biggest time sinks for maintainers: triaging the same bug filed multiple ways, closing duplicates, and linking back to the original. For large repositories, this&#8230;\nThe post Detecting Duplicate Issues &#8211; Public Preview and issue fields MCP support for GitHub ",
       "status": "未処理"
     }
   ]
