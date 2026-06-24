@@ -8,93 +8,93 @@
     <description>生成AI・AIエージェントの最新アップデートを随時配信。新機能・料金変更・連携情報など。</description>
     <language>ja</language>
     <atom:link href="https://kou56250046-cloud.github.io/AI-analyzer/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 22 Jun 2026 00:02:08 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2026 23:54:48 GMT</lastBuildDate>
     <ttl>1440</ttl>
     
   <item>
-    <title><![CDATA[OpenAI: Samsung Electronics brings ChatGPT and Codex to employees]]></title>
-    <link>https://openai.com/index/samsung-electronics-chatgpt-codex-deployment</link>
-    <description><![CDATA[Samsung Electronics deploys ChatGPT Enterprise and Codex to employees worldwide, marking one of OpenAI’s largest enterprise AI rollouts.]]></description>
+    <title><![CDATA[GitHub: Self-service credential revocation for incident response]]></title>
+    <link>https://github.blog/changelog/2026-06-24-self-service-credential-revocation-for-incident-response</link>
+    <description><![CDATA[For a timely response to security incidents involving compromised accounts or stolen credentials, GitHub Enterprise owners can now use new &#8220;break-glass&#8221; capabilities to instantly revoke all credentials for a given&#8230;
+The post Self-service credential revocation for incident response a]]></description>
     <category>update</category>
-    <pubDate>Mon, 22 Jun 2026 00:02:08 GMT</pubDate>
-    <guid isPermaLink="false">https://openai.com/index/samsung-electronics-chatgpt-codex-deployment-Sun, 21 Ju</guid>
+    <pubDate>Wed, 24 Jun 2026 23:54:48 GMT</pubDate>
+    <guid isPermaLink="false">https://github.blog/changelog/2026-06-24-self-service-credential-revocation-for-incident-response-Wed, 24 Ju</guid>
   </item>
   <item>
-    <title><![CDATA[GitHub: AI credits consumed per user now in the Copilot usage metrics API]]></title>
-    <link>https://github.blog/changelog/2026-06-19-ai-credits-consumed-per-user-now-in-the-copilot-usage-metrics-api</link>
-    <description><![CDATA[The Copilot usage metrics API now reports how many AI credits each user consumed per day, derived from the same AI credits consumption data used in the usage-based billing API.&#8230;
-The post AI credits consumed per user now in the Copilot usage metrics API appeared first on The GitHub Blog.]]></description>
+    <title><![CDATA[GitHub: Changes to model selection for Free and Student plans]]></title>
+    <link>https://github.blog/changelog/2026-06-24-changes-to-model-selection-for-free-and-student-plans</link>
+    <description><![CDATA[Copilot Free and Student plans will now use Copilot auto model selection as the default and only model selection experience. Auto dynamically selects the best model for each task, removing&#8230;
+The post Changes to model selection for Free and Student plans appeared first on The GitHub Blog.]]></description>
+    <category>pricing</category>
+    <pubDate>Wed, 24 Jun 2026 23:54:48 GMT</pubDate>
+    <guid isPermaLink="false">https://github.blog/changelog/2026-06-24-changes-to-model-selection-for-free-and-student-plans-Wed, 24 Ju</guid>
+  </item>
+  <item>
+    <title><![CDATA[OpenAI: OpenAI and Broadcom unveil LLM-optimized inference chip]]></title>
+    <link>https://openai.com/index/openai-broadcom-jalapeno-inference-chip</link>
+    <description><![CDATA[OpenAI and Broadcom introduce Jalapeño, a custom AI chip built for LLM inference to improve performance, efficiency, and scale across AI systems.]]></description>
+    <category>update</category>
+    <pubDate>Wed, 24 Jun 2026 23:54:48 GMT</pubDate>
+    <guid isPermaLink="false">https://openai.com/index/openai-broadcom-jalapeno-inference-chip-Wed, 24 Ju</guid>
+  </item>
+  <item>
+    <title><![CDATA[GitHub: Secret scanning adds extended metadata for Replicate secrets]]></title>
+    <link>https://github.blog/changelog/2026-06-23-secret-scanning-adds-extended-metadata-for-replicate-secrets</link>
+    <description><![CDATA[Secret scanning now includes extended metadata for Replicate secrets, providing richer context for leaked credentials. Extended metadata support This pattern now includes extended metadata when detected, providing richer context about&#8230;
+The post Secret scanning adds extended metadata for Replic]]></description>
+    <category>update</category>
+    <pubDate>Wed, 24 Jun 2026 23:54:48 GMT</pubDate>
+    <guid isPermaLink="false">https://github.blog/changelog/2026-06-23-secret-scanning-adds-extended-metadata-for-replicate-secrets-Tue, 23 Ju</guid>
+  </item>
+  <item>
+    <title><![CDATA[GitHub: Fetch Code Quality findings via REST API]]></title>
+    <link>https://github.blog/changelog/2026-06-23-fetch-code-quality-findings-via-rest-api</link>
+    <description><![CDATA[Repository-level REST APIs for Code Quality findings are now available in public preview, bringing API support closer to the functionality already available in the GitHub UI. Two new read-only endpoints&#8230;
+The post Fetch Code Quality findings via REST API appeared first on The GitHub Blog.]]></description>
     <category>integration</category>
-    <pubDate>Mon, 22 Jun 2026 00:02:08 GMT</pubDate>
-    <guid isPermaLink="false">https://github.blog/changelog/2026-06-19-ai-credits-consumed-per-user-now-in-the-copilot-usage-metrics-api-Fri, 19 Ju</guid>
+    <pubDate>Wed, 24 Jun 2026 23:54:48 GMT</pubDate>
+    <guid isPermaLink="false">https://github.blog/changelog/2026-06-23-fetch-code-quality-findings-via-rest-api-Tue, 23 Ju</guid>
   </item>
   <item>
-    <title><![CDATA[GitHub: Upcoming deprecation of Opus 4.6 (fast)]]></title>
-    <link>https://github.blog/changelog/2026-06-18-upcoming-deprecation-of-opus-4-6-fast</link>
-    <description><![CDATA[We will deprecate Opus 4.6 (fast) across all GitHub Copilot experiences (including Copilot Chat, inline edits, ask and agent modes, and code completions), on June 29th, 2026: Model Deprecation date&#8230;
-The post Upcoming deprecation of Opus 4.6 (fast) appeared first on The GitHub Blog.]]></description>
-    <category>deprecation</category>
-    <pubDate>Mon, 22 Jun 2026 00:02:08 GMT</pubDate>
-    <guid isPermaLink="false">https://github.blog/changelog/2026-06-18-upcoming-deprecation-of-opus-4-6-fast-Thu, 18 Ju</guid>
-  </item>
-  <item>
-    <title><![CDATA[GitHub: MAI-Code-1-Flash available on more Copilot surfaces]]></title>
-    <link>https://github.blog/changelog/2026-06-18-mai-code-1-flash-available-on-more-copilot-surfaces</link>
-    <description><![CDATA[MAI&#8209;Code&#8209;1&#8209;Flash, Microsoft&#8217;s purpose&#8209;built small coding model, is now available across additional GitHub Copilot surfaces. MAI&#8209;Code&#8209;1&#8209;Flash can now be used in: Copilot CLI GitHub Copilot app Copilot Chat on GitHub Visual&#8230;
-The post MAI-Code-1-Fla]]></description>
+    <title><![CDATA[OpenAI: How GPT-5 helped immunologist Derya Unutmaz solve a 3-year-old mystery]]></title>
+    <link>https://openai.com/index/gpt-5-immunology-mystery</link>
+    <description><![CDATA[GPT-5 Pro helped solve a 3-year-old immunology mystery, offering insights into T cell behavior. The breakthrough could support cancer and autoimmune research.]]></description>
     <category>update</category>
-    <pubDate>Mon, 22 Jun 2026 00:02:08 GMT</pubDate>
-    <guid isPermaLink="false">https://github.blog/changelog/2026-06-18-mai-code-1-flash-available-on-more-copilot-surfaces-Thu, 18 Ju</guid>
+    <pubDate>Wed, 24 Jun 2026 23:54:48 GMT</pubDate>
+    <guid isPermaLink="false">https://openai.com/index/gpt-5-immunology-mystery-Tue, 23 Ju</guid>
   </item>
   <item>
-    <title><![CDATA[GitHub: Copilot code review: AGENTS.md support and UI improvements]]></title>
-    <link>https://github.blog/changelog/2026-06-18-copilot-code-review-agents-md-support-and-ui-improvements</link>
-    <description><![CDATA[Copilot code review now supports repository-level AGENTS.md files, and it&#8217;s easier to request a review from Copilot on draft pull requests with the Request button. These changes are all generally&#8230;
-The post Copilot code review: AGENTS.md support and UI improvements appeared first on The G]]></description>
+    <title><![CDATA[GitHub: Automatic Dependabot access to GitHub-hosted registries]]></title>
+    <link>https://github.blog/changelog/2026-06-23-automatic-dependabot-access-to-github-hosted-registries</link>
+    <description><![CDATA[Dependabot can now read from private GitHub Packages registries without a personal access token. If a package has granted your repository access through &#8220;Manage Actions access&#8221; in the package settings,&#8230;
+The post Automatic Dependabot access to GitHub-hosted registries appeared first]]></description>
     <category>update</category>
-    <pubDate>Mon, 22 Jun 2026 00:02:08 GMT</pubDate>
-    <guid isPermaLink="false">https://github.blog/changelog/2026-06-18-copilot-code-review-agents-md-support-and-ui-improvements-Thu, 18 Ju</guid>
+    <pubDate>Wed, 24 Jun 2026 23:54:48 GMT</pubDate>
+    <guid isPermaLink="false">https://github.blog/changelog/2026-06-23-automatic-dependabot-access-to-github-hosted-registries-Tue, 23 Ju</guid>
   </item>
   <item>
-    <title><![CDATA[GitHub: Detecting Duplicate Issues &#8211; Public Preview and issue fields MCP support for GitHub Issues]]></title>
-    <link>https://github.blog/changelog/2026-06-18-duplicate-detection-and-issue-fields-mcp-support-for-github-issues</link>
-    <description><![CDATA[Duplicate issues are one of the biggest time sinks for maintainers: triaging the same bug filed multiple ways, closing duplicates, and linking back to the original. For large repositories, this&#8230;
-The post Detecting Duplicate Issues &#8211; Public Preview and issue fields MCP support for GitHub ]]></description>
+    <title><![CDATA[OpenAI: Helping build shared standards for advanced AI]]></title>
+    <link>https://openai.com/index/helping-build-shared-standards-for-advanced-ai</link>
+    <description><![CDATA[OpenAI helps build shared standards for advanced AI, supporting evaluation frameworks, safety practices, and global cooperation through the Appia Foundation.]]></description>
     <category>update</category>
-    <pubDate>Mon, 22 Jun 2026 00:02:08 GMT</pubDate>
-    <guid isPermaLink="false">https://github.blog/changelog/2026-06-18-duplicate-detection-and-issue-fields-mcp-support-for-github-issues-Thu, 18 Ju</guid>
+    <pubDate>Wed, 24 Jun 2026 23:54:48 GMT</pubDate>
+    <guid isPermaLink="false">https://openai.com/index/helping-build-shared-standards-for-advanced-ai-Tue, 23 Ju</guid>
   </item>
   <item>
-    <title><![CDATA[OpenAI: New usage analytics and updated spend controls for enterprises]]></title>
-    <link>https://openai.com/index/chatgpt-enterprise-spend-controls</link>
-    <description><![CDATA[OpenAI introduces new spend controls and usage analytics for ChatGPT Enterprise, helping organizations manage costs and scale AI with confidence.]]></description>
-    <category>new_feature</category>
-    <pubDate>Mon, 22 Jun 2026 00:02:08 GMT</pubDate>
-    <guid isPermaLink="false">https://openai.com/index/chatgpt-enterprise-spend-controls-Thu, 18 Ju</guid>
-  </item>
-  <item>
-    <title><![CDATA[OpenAI: Improving health intelligence in ChatGPT]]></title>
-    <link>https://openai.com/index/improving-health-intelligence-in-chatgpt</link>
-    <description><![CDATA[Learn how GPT-5.5 Instant improves ChatGPT’s health and wellness responses with stronger reasoning, better context, clearer communication, and physician-informed evaluations.]]></description>
+    <title><![CDATA[OpenAI: How Omio is building the future of conversational travel]]></title>
+    <link>https://openai.com/index/omio</link>
+    <description><![CDATA[Discover how Omio uses OpenAI to power conversational travel experiences, accelerate product development, and transform into an AI-native company.]]></description>
     <category>update</category>
-    <pubDate>Mon, 22 Jun 2026 00:02:08 GMT</pubDate>
-    <guid isPermaLink="false">https://openai.com/index/improving-health-intelligence-in-chatgpt-Thu, 18 Ju</guid>
+    <pubDate>Wed, 24 Jun 2026 23:54:48 GMT</pubDate>
+    <guid isPermaLink="false">https://openai.com/index/omio-Tue, 23 Ju</guid>
   </item>
   <item>
-    <title><![CDATA[OpenAI: Using AI to help physicians diagnose rare genetic diseases affecting children]]></title>
-    <link>https://openai.com/index/diagnose-rare-childhood-diseases</link>
-    <description><![CDATA[Researchers used an OpenAI reasoning model to help diagnose rare diseases, identifying 18 new diagnoses in previously unsolved cases.]]></description>
+    <title><![CDATA[OpenAI: Daybreak: Tools for securing every organization in the world]]></title>
+    <link>https://openai.com/index/daybreak-securing-the-world</link>
+    <description><![CDATA[OpenAI introduces new Daybreak tools, including Codex Security and GPT-5.5-Cyber, to help organizations find, validate, and patch vulnerabilities at scale.]]></description>
     <category>update</category>
-    <pubDate>Mon, 22 Jun 2026 00:02:08 GMT</pubDate>
-    <guid isPermaLink="false">https://openai.com/index/diagnose-rare-childhood-diseases-Thu, 18 Ju</guid>
-  </item>
-  <item>
-    <title><![CDATA[Google AI: New research shows how AMIE, our medical AI, could help manage health conditions.]]></title>
-    <link>https://blog.google/innovation-and-ai/models-and-research/google-research/amie-for-disease-management-in-nature/</link>
-    <description><![CDATA[<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AMIE_Mx_Nature_Social_Visual_Va.max-600x600.format-webp.webp">Research in “Nature” shows our conversational AI system matches primary care physicians in complex disease management.]]></description>
-    <category>new_feature</category>
-    <pubDate>Mon, 22 Jun 2026 00:02:08 GMT</pubDate>
-    <guid isPermaLink="false">https://blog.google/innovation-and-ai/models-and-research/google-research/amie-for-disease-management-in-nature/-Wed, 17 Ju</guid>
+    <pubDate>Wed, 24 Jun 2026 23:54:48 GMT</pubDate>
+    <guid isPermaLink="false">https://openai.com/index/daybreak-securing-the-world-Mon, 22 Ju</guid>
   </item>
   </channel>
 </rss>
