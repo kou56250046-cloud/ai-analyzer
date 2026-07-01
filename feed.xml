@@ -8,93 +8,93 @@
     <description>生成AI・AIエージェントの最新アップデートを随時配信。新機能・料金変更・連携情報など。</description>
     <language>ja</language>
     <atom:link href="https://kou56250046-cloud.github.io/AI-analyzer/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sun, 28 Jun 2026 23:58:08 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 23:59:21 GMT</lastBuildDate>
     <ttl>1440</ttl>
     
   <item>
-    <title><![CDATA[GitHub: Track total merges by adoption phase in enterprise and organization reports]]></title>
-    <link>https://github.blog/changelog/2026-06-26-track-total-merges-by-adoption-phase-in-enterprise-and-organization-reports</link>
-    <description><![CDATA[Building on the AI adoption phase cohorts added to the Copilot usage metrics API, organization and enterprise reports now report the total number of pull requests merged by each adoption&#8230;
-The post Track total merges by adoption phase in enterprise and organization reports appeared first on The]]></description>
+    <title><![CDATA[GitHub: Enterprises can default to auto model selection]]></title>
+    <link>https://github.blog/changelog/2026-07-01-enterprises-can-default-to-auto-model-selection</link>
+    <description><![CDATA[Enterprise administrators can now set model to auto in the enterprise managed-settings.json to make Copilot auto model selection the default for new conversations. Add auto to .github-private/.github/copilot/managed-settings.json in your source&#8230;
+The post Enterprises can default to auto model s]]></description>
     <category>update</category>
-    <pubDate>Sun, 28 Jun 2026 23:58:08 GMT</pubDate>
-    <guid isPermaLink="false">https://github.blog/changelog/2026-06-26-track-total-merges-by-adoption-phase-in-enterprise-and-organization-reports-Fri, 26 Ju</guid>
+    <pubDate>Wed, 01 Jul 2026 23:59:21 GMT</pubDate>
+    <guid isPermaLink="false">https://github.blog/changelog/2026-07-01-enterprises-can-default-to-auto-model-selection-Wed, 01 Ju</guid>
   </item>
   <item>
-    <title><![CDATA[GitHub: MAI-Code-1-Flash for Copilot Business and Copilot Enterprise]]></title>
-    <link>https://github.blog/changelog/2026-06-26-mai-code-1-flash-for-copilot-business-and-copilot-enterprise</link>
-    <description><![CDATA[MAI-Code-1-Flash, Microsoft AI&#8217;s in-house coding model, is now generally available for GitHub Copilot Business and Copilot Enterprise, building on its recent expansion across Copilot surfaces. Purpose-built for coding and optimized&#8230;
-The post MAI-Code-1-Flash for Copilot Business and Copi]]></description>
+    <title><![CDATA[GitHub: GitHub Models is being fully retired on July 30, 2026]]></title>
+    <link>https://github.blog/changelog/2026-07-01-github-models-is-being-fully-retired-on-july-30-2026</link>
+    <description><![CDATA[In June, we announced that we are retiring GitHub Models and closed it to new customers. We&#8217;re now sharing the timeline for the next step: GitHub Models will be fully&#8230;
+The post GitHub Models is being fully retired on July 30, 2026 appeared first on The GitHub Blog.]]></description>
     <category>update</category>
-    <pubDate>Sun, 28 Jun 2026 23:58:08 GMT</pubDate>
-    <guid isPermaLink="false">https://github.blog/changelog/2026-06-26-mai-code-1-flash-for-copilot-business-and-copilot-enterprise-Fri, 26 Ju</guid>
+    <pubDate>Wed, 01 Jul 2026 23:59:21 GMT</pubDate>
+    <guid isPermaLink="false">https://github.blog/changelog/2026-07-01-github-models-is-being-fully-retired-on-july-30-2026-Wed, 01 Ju</guid>
   </item>
   <item>
-    <title><![CDATA[GitHub: GitHub Desktop 3.6: Worktrees and deeper Copilot integration]]></title>
-    <link>https://github.blog/changelog/2026-06-26-github-desktop-3-6-worktrees-and-deeper-copilot-integration</link>
-    <description><![CDATA[GitHub Desktop 3.6 brings more of your day-to-day Git flow into one place with GitHub Copilot now powering commit authoring and merge conflict resolution, plus new Git worktree support. The&#8230;
-The post GitHub Desktop 3.6: Worktrees and deeper Copilot integration appeared first on The GitHub Blog]]></description>
-    <category>integration</category>
-    <pubDate>Sun, 28 Jun 2026 23:58:08 GMT</pubDate>
-    <guid isPermaLink="false">https://github.blog/changelog/2026-06-26-github-desktop-3-6-worktrees-and-deeper-copilot-integration-Fri, 26 Ju</guid>
-  </item>
-  <item>
-    <title><![CDATA[OpenAI: Previewing GPT-5.6 Sol: a next-generation model]]></title>
-    <link>https://openai.com/index/previewing-gpt-5-6-sol</link>
-    <description><![CDATA[OpenAI previews GPT-5.6 Sol, a next-generation model with stronger capabilities in coding, science, and cybersecurity, paired with its most advanced safety stack.]]></description>
+    <title><![CDATA[GitHub: Enterprise managed-settings.json is generally available]]></title>
+    <link>https://github.blog/changelog/2026-07-01-enterprise-managed-settings-json-is-generally-available</link>
+    <description><![CDATA[GitHub Enterprise Cloud customers can configure AI standards through a managed-settings.json file maintained in a .github-private repository in a selected organization. This allows the enterprise to define new governance and&#8230;
+The post Enterprise managed-settings.json is generally available app]]></description>
     <category>update</category>
-    <pubDate>Sun, 28 Jun 2026 23:58:08 GMT</pubDate>
-    <guid isPermaLink="false">https://openai.com/index/previewing-gpt-5-6-sol-Fri, 26 Ju</guid>
+    <pubDate>Wed, 01 Jul 2026 23:59:21 GMT</pubDate>
+    <guid isPermaLink="false">https://github.blog/changelog/2026-07-01-enterprise-managed-settings-json-is-generally-available-Wed, 01 Ju</guid>
   </item>
   <item>
-    <title><![CDATA[GitHub: Copilot code review: Analysis depth and efficiency updates]]></title>
-    <link>https://github.blog/changelog/2026-06-25-copilot-code-review-analysis-depth-and-efficiency-updates</link>
-    <description><![CDATA[Copilot code review now uses the built-in file exploration tools available in the Copilot CLI and SDK, significantly improving review cost efficiency with no change to your existing workflow. If&#8230;
-The post Copilot code review: Analysis depth and efficiency updates appeared first on The GitHub B]]></description>
+    <title><![CDATA[GitHub: Secret scanning adds validators for Asana, IBM, and MessageBird]]></title>
+    <link>https://github.blog/changelog/2026-07-01-secret-scanning-adds-validators-for-asana-ibm-and-messagebird</link>
+    <description><![CDATA[Secret scanning now runs validity checks on Asana, IBM, and MessageBird secrets so you can tell whether a leaked credential is still active. Validity checks added These patterns now support&#8230;
+The post Secret scanning adds validators for Asana, IBM, and MessageBird appeared first on The GitHub B]]></description>
     <category>update</category>
-    <pubDate>Sun, 28 Jun 2026 23:58:08 GMT</pubDate>
-    <guid isPermaLink="false">https://github.blog/changelog/2026-06-25-copilot-code-review-analysis-depth-and-efficiency-updates-Thu, 25 Ju</guid>
+    <pubDate>Wed, 01 Jul 2026 23:59:21 GMT</pubDate>
+    <guid isPermaLink="false">https://github.blog/changelog/2026-07-01-secret-scanning-adds-validators-for-asana-ibm-and-messagebird-Wed, 01 Ju</guid>
   </item>
   <item>
-    <title><![CDATA[GitHub: Enterprise-managed settings now support strictKnownMarketplaces in VS Code and GitHub Copilot CLI]]></title>
-    <link>https://github.blog/changelog/2026-06-25-enterprise-managed-settings-now-support-strictknownmarketplaces-in-vs-code-and-the-cli</link>
-    <description><![CDATA[Enterprises can now control which plugins their users can install in GitHub Copilot CLI and VS Code. This setting is now available in public preview. Add strictKnownMarketplaces to your enterprise-managed&#8230;
-The post Enterprise-managed settings now support strictKnownMarketplaces in VS Code and ]]></description>
-    <category>update</category>
-    <pubDate>Sun, 28 Jun 2026 23:58:08 GMT</pubDate>
-    <guid isPermaLink="false">https://github.blog/changelog/2026-06-25-enterprise-managed-settings-now-support-strictknownmarketplaces-in-vs-code-and-the-cli-Thu, 25 Ju</guid>
-  </item>
-  <item>
-    <title><![CDATA[Google AI: Our latest Google Finance upgrades, including a new app]]></title>
-    <link>https://blog.google/products-and-platforms/products/search/google-finance-updates-june-2026/</link>
-    <description><![CDATA[<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Finance_blog_image_June_.max-600x600.format-webp.webp">The new Google Finance is coming out of beta and launching a new Android app.]]></description>
+    <title><![CDATA[GitHub: New C++ language server config skill for Copilot CLI]]></title>
+    <link>https://github.blog/changelog/2026-07-01-new-c-language-server-config-skill-for-copilot-cli</link>
+    <description><![CDATA[The Microsoft C++ Language Server is now available as a plugin on the Copilot Plugins marketplace. It includes a new built-in setup skill that helps automate project setup, making it&#8230;
+The post New C++ language server config skill for Copilot CLI appeared first on The GitHub Blog.]]></description>
     <category>new_feature</category>
-    <pubDate>Sun, 28 Jun 2026 23:58:08 GMT</pubDate>
-    <guid isPermaLink="false">https://blog.google/products-and-platforms/products/search/google-finance-updates-june-2026/-Thu, 25 Ju</guid>
+    <pubDate>Wed, 01 Jul 2026 23:59:21 GMT</pubDate>
+    <guid isPermaLink="false">https://github.blog/changelog/2026-07-01-new-c-language-server-config-skill-for-copilot-cli-Wed, 01 Ju</guid>
   </item>
   <item>
-    <title><![CDATA[OpenAI: How agents are transforming work]]></title>
-    <link>https://openai.com/index/how-agents-are-transforming-work</link>
-    <description><![CDATA[A new OpenAI research paper shows how AI agents are transforming work, enabling longer, more complex tasks and expanding productivity across roles.]]></description>
-    <category>update</category>
-    <pubDate>Sun, 28 Jun 2026 23:58:08 GMT</pubDate>
-    <guid isPermaLink="false">https://openai.com/index/how-agents-are-transforming-work-Thu, 25 Ju</guid>
+    <title><![CDATA[Google AI: The latest AI news we announced in June 2026]]></title>
+    <link>https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/</link>
+    <description><![CDATA[<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/260701_ICYMI-June-AI_Thumb.max-600x600.format-webp.webp">Here are Google’s latest AI updates from June 2026.]]></description>
+    <category>new_feature</category>
+    <pubDate>Wed, 01 Jul 2026 23:59:21 GMT</pubDate>
+    <guid isPermaLink="false">https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/-Wed, 01 Ju</guid>
   </item>
   <item>
-    <title><![CDATA[OpenAI: OpenAI and Broadcom unveil LLM-optimized inference chip]]></title>
-    <link>https://openai.com/index/openai-broadcom-jalapeno-inference-chip</link>
-    <description><![CDATA[OpenAI and Broadcom introduce Jalapeño, a custom AI chip built for LLM inference to improve performance, efficiency, and scale across AI systems.]]></description>
-    <category>update</category>
-    <pubDate>Sun, 28 Jun 2026 23:58:08 GMT</pubDate>
-    <guid isPermaLink="false">https://openai.com/index/openai-broadcom-jalapeno-inference-chip-Wed, 24 Ju</guid>
+    <title><![CDATA[Google AI: New York City educators and industry leaders gathered at Google’s offices to shape the future of AI in classrooms.]]></title>
+    <link>https://blog.google/products-and-platforms/products/education/nyc-ai-summit/</link>
+    <description><![CDATA[<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Summit_Photo_1.max-600x600.format-webp.webp">Google, the New York Jobs CEO Council and Urban Assembly hosted an AI summit for 150 education and industry leaders.]]></description>
+    <category>new_feature</category>
+    <pubDate>Wed, 01 Jul 2026 23:59:21 GMT</pubDate>
+    <guid isPermaLink="false">https://blog.google/products-and-platforms/products/education/nyc-ai-summit/-Wed, 01 Ju</guid>
   </item>
   <item>
-    <title><![CDATA[OpenAI: How GPT-5 helped immunologist Derya Unutmaz solve a 3-year-old mystery]]></title>
-    <link>https://openai.com/index/gpt-5-immunology-mystery</link>
-    <description><![CDATA[GPT-5 Pro helped solve a 3-year-old immunology mystery, offering insights into T cell behavior. The breakthrough could support cancer and autoimmune research.]]></description>
+    <title><![CDATA[OpenAI: How ChatGPT adoption has expanded]]></title>
+    <link>https://openai.com/index/how-chatgpt-adoption-has-expanded</link>
+    <description><![CDATA[New OpenAI Signals data shows how ChatGPT adoption is growing globally, with users increasing usage, exploring more capabilities, and driving growth across regions and languages.]]></description>
     <category>update</category>
-    <pubDate>Sun, 28 Jun 2026 23:58:08 GMT</pubDate>
-    <guid isPermaLink="false">https://openai.com/index/gpt-5-immunology-mystery-Tue, 23 Ju</guid>
+    <pubDate>Wed, 01 Jul 2026 23:59:21 GMT</pubDate>
+    <guid isPermaLink="false">https://openai.com/index/how-chatgpt-adoption-has-expanded-Tue, 30 Ju</guid>
+  </item>
+  <item>
+    <title><![CDATA[Google AI: Unlocking Britain’s next era of productivity: Building a nation of AI trailblazers]]></title>
+    <link>https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/unlocking-britains-next-era-of-productivity-building-a-nation-of-ai-trailblazers/</link>
+    <description><![CDATA[<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_Generated_Image_k2dxu1k2.max-600x600.format-webp.webp">Google UK shares its latest Economic Impact Report and how to enable more people to unlock the benefits of AI-powered technologies.]]></description>
+    <category>update</category>
+    <pubDate>Wed, 01 Jul 2026 23:59:21 GMT</pubDate>
+    <guid isPermaLink="false">https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/unlocking-britains-next-era-of-productivity-building-a-nation-of-ai-trailblazers/-Tue, 30 Ju</guid>
+  </item>
+  <item>
+    <title><![CDATA[OpenAI: Inside Genebench-Pro]]></title>
+    <link>https://openai.com/index/genebench-pro/case-studies</link>
+    <description><![CDATA[Inside Genebench-Pro]]></description>
+    <category>update</category>
+    <pubDate>Wed, 01 Jul 2026 23:59:21 GMT</pubDate>
+    <guid isPermaLink="false">https://openai.com/index/genebench-pro/case-studies-Tue, 30 Ju</guid>
   </item>
   </channel>
 </rss>

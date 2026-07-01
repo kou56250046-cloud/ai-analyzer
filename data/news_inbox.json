@@ -1,45 +1,77 @@
 {
-  "fetched_at": "2026-06-28",
+  "fetched_at": "2026-07-01",
   "count": 15,
   "items": [
     {
       "tool": "OpenAI",
-      "title": "Previewing GPT-5.6 Sol: a next-generation model",
-      "url": "https://openai.com/index/previewing-gpt-5-6-sol",
-      "date": "Fri, 26 Jun 2026 10:00:00 GMT",
-      "description": "OpenAI previews GPT-5.6 Sol, a next-generation model with stronger capabilities in coding, science, and cybersecurity, paired with its most advanced safety stack.",
+      "title": "How ChatGPT adoption has expanded",
+      "url": "https://openai.com/index/how-chatgpt-adoption-has-expanded",
+      "date": "Tue, 30 Jun 2026 09:00:00 GMT",
+      "description": "New OpenAI Signals data shows how ChatGPT adoption is growing globally, with users increasing usage, exploring more capabilities, and driving growth across regions and languages.",
       "status": "未処理"
     },
     {
       "tool": "OpenAI",
-      "title": "How agents are transforming work",
-      "url": "https://openai.com/index/how-agents-are-transforming-work",
-      "date": "Thu, 25 Jun 2026 02:00:00 GMT",
-      "description": "A new OpenAI research paper shows how AI agents are transforming work, enabling longer, more complex tasks and expanding productivity across roles.",
+      "title": "Inside Genebench-Pro",
+      "url": "https://openai.com/index/genebench-pro/case-studies",
+      "date": "Tue, 30 Jun 2026 00:00:00 GMT",
+      "description": "",
       "status": "未処理"
     },
     {
       "tool": "OpenAI",
-      "title": "OpenAI and Broadcom unveil LLM-optimized inference chip",
-      "url": "https://openai.com/index/openai-broadcom-jalapeno-inference-chip",
-      "date": "Wed, 24 Jun 2026 06:00:00 GMT",
-      "description": "OpenAI and Broadcom introduce Jalapeño, a custom AI chip built for LLM inference to improve performance, efficiency, and scale across AI systems.",
+      "title": "Introducing GeneBench-Pro",
+      "url": "https://openai.com/index/introducing-genebench-pro",
+      "date": "Tue, 30 Jun 2026 00:00:00 GMT",
+      "description": "Introducing GeneBench-Pro, a new benchmark testing AI performance in genomics, biology, and scientific research using complex, real-world datasets.",
       "status": "未処理"
     },
     {
       "tool": "OpenAI",
-      "title": "Helping build shared standards for advanced AI",
-      "url": "https://openai.com/index/helping-build-shared-standards-for-advanced-ai",
-      "date": "Tue, 23 Jun 2026 13:00:00 GMT",
-      "description": "OpenAI helps build shared standards for advanced AI, supporting evaluation frameworks, safety practices, and global cooperation through the Appia Foundation.",
+      "title": "Core dump epidemiology: fixing an 18-year-old bug",
+      "url": "https://openai.com/index/core-dump-epidemiology-data-infrastructure-bug",
+      "date": "Tue, 30 Jun 2026 00:00:00 GMT",
+      "description": "OpenAI engineers used large-scale core dump analysis to debug rare infrastructure crashes, uncovering both a hardware fault and a long-standing software bug.",
       "status": "未処理"
     },
     {
       "tool": "OpenAI",
-      "title": "How GPT-5 helped immunologist Derya Unutmaz solve a 3-year-old mystery",
-      "url": "https://openai.com/index/gpt-5-immunology-mystery",
-      "date": "Tue, 23 Jun 2026 17:00:00 GMT",
-      "description": "GPT-5 Pro helped solve a 3-year-old immunology mystery, offering insights into T cell behavior. The breakthrough could support cancer and autoimmune research.",
+      "title": "Mapping Europe’s AI Workforce Opportunity",
+      "url": "https://openai.com/index/mapping-ai-jobs-transition-eu",
+      "date": "Mon, 29 Jun 2026 07:00:00 GMT",
+      "description": "A new OpenAI report maps how AI could reshape jobs across the EU, highlighting which occupations may face automation, growth, or workflow changes.",
+      "status": "未処理"
+    },
+    {
+      "tool": "Google AI",
+      "title": "The latest AI news we announced in June 2026",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/",
+      "date": "Wed, 01 Jul 2026 18:15:00 +0000",
+      "description": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/260701_ICYMI-June-AI_Thumb.max-600x600.format-webp.webp\">Here are Google’s latest AI updates from June 2026.",
+      "status": "未処理"
+    },
+    {
+      "tool": "Google AI",
+      "title": "New York City educators and industry leaders gathered at Google’s offices to shape the future of AI in classrooms.",
+      "url": "https://blog.google/products-and-platforms/products/education/nyc-ai-summit/",
+      "date": "Wed, 01 Jul 2026 16:00:00 +0000",
+      "description": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Summit_Photo_1.max-600x600.format-webp.webp\">Google, the New York Jobs CEO Council and Urban Assembly hosted an AI summit for 150 education and industry leaders.",
+      "status": "未処理"
+    },
+    {
+      "tool": "Google AI",
+      "title": "Unlocking Britain’s next era of productivity: Building a nation of AI trailblazers",
+      "url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/unlocking-britains-next-era-of-productivity-building-a-nation-of-ai-trailblazers/",
+      "date": "Tue, 30 Jun 2026 06:00:00 +0000",
+      "description": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_Generated_Image_k2dxu1k2.max-600x600.format-webp.webp\">Google UK shares its latest Economic Impact Report and how to enable more people to unlock the benefits of AI-powered technologies.",
+      "status": "未処理"
+    },
+    {
+      "tool": "Google AI",
+      "title": "Ask an AI expert: What exactly is the full stack?",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/full-stack-ai-explainer/",
+      "date": "Mon, 29 Jun 2026 16:00:00 +0000",
+      "description": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Full_Stack.max-600x600.format-webp.webp\">A Google expert explains what it means to take a full-stack approach to AI and why it’s been the foundation of our AI work for so long.",
       "status": "未処理"
     },
     {
@@ -51,75 +83,43 @@
       "status": "未処理"
     },
     {
-      "tool": "Google AI",
-      "title": "New research shows how AMIE, our medical AI, could help manage health conditions.",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-for-disease-management-in-nature/",
-      "date": "Wed, 17 Jun 2026 15:00:00 +0000",
-      "description": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AMIE_Mx_Nature_Social_Visual_Va.max-600x600.format-webp.webp\">Research in “Nature” shows our conversational AI system matches primary care physicians in complex disease management.",
-      "status": "未処理"
-    },
-    {
-      "tool": "Google AI",
-      "title": "We’re strengthening our presence in Alabama through new investments and community support.",
-      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/",
-      "date": "Mon, 15 Jun 2026 15:00:00 +0000",
-      "description": "Google has announced a $1.5 billion investment for 2026 and 2027 to expand its data center campus in Jackson County, Alabama. Operating since 2019 on a repurposed former…",
-      "status": "未処理"
-    },
-    {
-      "tool": "Google AI",
-      "title": "Our new community investments in Virginia support local jobs and expand energy affordability.",
-      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/virginia-community-investments/",
-      "date": "Thu, 11 Jun 2026 20:00:00 +0000",
-      "description": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/VirginiaSocial.max-600x600.format-webp.webp\">We’re helping build the state’s next-generation workforce and investing in energy programs.",
-      "status": "未処理"
-    },
-    {
-      "tool": "Google AI",
-      "title": "The latest AI news we announced in May 2026",
-      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/",
-      "date": "Fri, 05 Jun 2026 14:45:00 +0000",
-      "description": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/May_AI_Recap_still.max-600x600.format-webp.webp\">Here are Google’s latest AI updates from May 2026",
+      "tool": "GitHub",
+      "title": "Enterprises can default to auto model selection",
+      "url": "https://github.blog/changelog/2026-07-01-enterprises-can-default-to-auto-model-selection",
+      "date": "Wed, 01 Jul 2026 22:27:16 +0000",
+      "description": "Enterprise administrators can now set model to auto in the enterprise managed-settings.json to make Copilot auto model selection the default for new conversations. Add auto to .github-private/.github/copilot/managed-settings.json in your source&#8230;\nThe post Enterprises can default to auto model s",
       "status": "未処理"
     },
     {
       "tool": "GitHub",
-      "title": "Track total merges by adoption phase in enterprise and organization reports",
-      "url": "https://github.blog/changelog/2026-06-26-track-total-merges-by-adoption-phase-in-enterprise-and-organization-reports",
-      "date": "Fri, 26 Jun 2026 20:55:03 +0000",
-      "description": "Building on the AI adoption phase cohorts added to the Copilot usage metrics API, organization and enterprise reports now report the total number of pull requests merged by each adoption&#8230;\nThe post Track total merges by adoption phase in enterprise and organization reports appeared first on The",
+      "title": "GitHub Models is being fully retired on July 30, 2026",
+      "url": "https://github.blog/changelog/2026-07-01-github-models-is-being-fully-retired-on-july-30-2026",
+      "date": "Wed, 01 Jul 2026 21:30:20 +0000",
+      "description": "In June, we announced that we are retiring GitHub Models and closed it to new customers. We&#8217;re now sharing the timeline for the next step: GitHub Models will be fully&#8230;\nThe post GitHub Models is being fully retired on July 30, 2026 appeared first on The GitHub Blog.",
       "status": "未処理"
     },
     {
       "tool": "GitHub",
-      "title": "MAI-Code-1-Flash for Copilot Business and Copilot Enterprise",
-      "url": "https://github.blog/changelog/2026-06-26-mai-code-1-flash-for-copilot-business-and-copilot-enterprise",
-      "date": "Fri, 26 Jun 2026 16:35:06 +0000",
-      "description": "MAI-Code-1-Flash, Microsoft AI&#8217;s in-house coding model, is now generally available for GitHub Copilot Business and Copilot Enterprise, building on its recent expansion across Copilot surfaces. Purpose-built for coding and optimized&#8230;\nThe post MAI-Code-1-Flash for Copilot Business and Copi",
+      "title": "Enterprise managed-settings.json is generally available",
+      "url": "https://github.blog/changelog/2026-07-01-enterprise-managed-settings-json-is-generally-available",
+      "date": "Wed, 01 Jul 2026 20:57:26 +0000",
+      "description": "GitHub Enterprise Cloud customers can configure AI standards through a managed-settings.json file maintained in a .github-private repository in a selected organization. This allows the enterprise to define new governance and&#8230;\nThe post Enterprise managed-settings.json is generally available app",
       "status": "未処理"
     },
     {
       "tool": "GitHub",
-      "title": "GitHub Desktop 3.6: Worktrees and deeper Copilot integration",
-      "url": "https://github.blog/changelog/2026-06-26-github-desktop-3-6-worktrees-and-deeper-copilot-integration",
-      "date": "Fri, 26 Jun 2026 10:32:58 +0000",
-      "description": "GitHub Desktop 3.6 brings more of your day-to-day Git flow into one place with GitHub Copilot now powering commit authoring and merge conflict resolution, plus new Git worktree support. The&#8230;\nThe post GitHub Desktop 3.6: Worktrees and deeper Copilot integration appeared first on The GitHub Blog",
+      "title": "Secret scanning adds validators for Asana, IBM, and MessageBird",
+      "url": "https://github.blog/changelog/2026-07-01-secret-scanning-adds-validators-for-asana-ibm-and-messagebird",
+      "date": "Wed, 01 Jul 2026 20:49:41 +0000",
+      "description": "Secret scanning now runs validity checks on Asana, IBM, and MessageBird secrets so you can tell whether a leaked credential is still active. Validity checks added These patterns now support&#8230;\nThe post Secret scanning adds validators for Asana, IBM, and MessageBird appeared first on The GitHub B",
       "status": "未処理"
     },
     {
       "tool": "GitHub",
-      "title": "Copilot code review: Analysis depth and efficiency updates",
-      "url": "https://github.blog/changelog/2026-06-25-copilot-code-review-analysis-depth-and-efficiency-updates",
-      "date": "Thu, 25 Jun 2026 21:41:18 +0000",
-      "description": "Copilot code review now uses the built-in file exploration tools available in the Copilot CLI and SDK, significantly improving review cost efficiency with no change to your existing workflow. If&#8230;\nThe post Copilot code review: Analysis depth and efficiency updates appeared first on The GitHub B",
-      "status": "未処理"
-    },
-    {
-      "tool": "GitHub",
-      "title": "Enterprise-managed settings now support strictKnownMarketplaces in VS Code and GitHub Copilot CLI",
-      "url": "https://github.blog/changelog/2026-06-25-enterprise-managed-settings-now-support-strictknownmarketplaces-in-vs-code-and-the-cli",
-      "date": "Thu, 25 Jun 2026 21:30:42 +0000",
-      "description": "Enterprises can now control which plugins their users can install in GitHub Copilot CLI and VS Code. This setting is now available in public preview. Add strictKnownMarketplaces to your enterprise-managed&#8230;\nThe post Enterprise-managed settings now support strictKnownMarketplaces in VS Code and ",
+      "title": "New C++ language server config skill for Copilot CLI",
+      "url": "https://github.blog/changelog/2026-07-01-new-c-language-server-config-skill-for-copilot-cli",
+      "date": "Wed, 01 Jul 2026 20:32:52 +0000",
+      "description": "The Microsoft C++ Language Server is now available as a plugin on the Copilot Plugins marketplace. It includes a new built-in setup skill that helps automate project setup, making it&#8230;\nThe post New C++ language server config skill for Copilot CLI appeared first on The GitHub Blog.",
       "status": "未処理"
     }
   ]

@@ -1,93 +1,93 @@
-// 自動生成 — 2026-06-28 (update_news.mjs) 手動編集不要
+// 自動生成 — 2026-07-01 (update_news.mjs) 手動編集不要
 export const NEWS = [
   {
-    "week": "2026-W26",
-    "date": "Fri, 26 Ju",
+    "week": "2026-W27",
+    "date": "Wed, 01 Ju",
     "tool": "GitHub",
     "category": "update",
-    "title": "Track total merges by adoption phase in enterprise and organization reports",
-    "summary": "Building on the AI adoption phase cohorts added to the Copilot usage metrics API, organization and enterprise reports now report the total number of pull requests merged by each adoption&#8230;\nThe post Track total merges by adoption phase in enterprise and organization reports appeared first on The",
-    "url": "https://github.blog/changelog/2026-06-26-track-total-merges-by-adoption-phase-in-enterprise-and-organization-reports"
+    "title": "Enterprises can default to auto model selection",
+    "summary": "Enterprise administrators can now set model to auto in the enterprise managed-settings.json to make Copilot auto model selection the default for new conversations. Add auto to .github-private/.github/copilot/managed-settings.json in your source&#8230;\nThe post Enterprises can default to auto model s",
+    "url": "https://github.blog/changelog/2026-07-01-enterprises-can-default-to-auto-model-selection"
   },
   {
-    "week": "2026-W26",
-    "date": "Fri, 26 Ju",
+    "week": "2026-W27",
+    "date": "Wed, 01 Ju",
     "tool": "GitHub",
     "category": "update",
-    "title": "MAI-Code-1-Flash for Copilot Business and Copilot Enterprise",
-    "summary": "MAI-Code-1-Flash, Microsoft AI&#8217;s in-house coding model, is now generally available for GitHub Copilot Business and Copilot Enterprise, building on its recent expansion across Copilot surfaces. Purpose-built for coding and optimized&#8230;\nThe post MAI-Code-1-Flash for Copilot Business and Copi",
-    "url": "https://github.blog/changelog/2026-06-26-mai-code-1-flash-for-copilot-business-and-copilot-enterprise"
+    "title": "GitHub Models is being fully retired on July 30, 2026",
+    "summary": "In June, we announced that we are retiring GitHub Models and closed it to new customers. We&#8217;re now sharing the timeline for the next step: GitHub Models will be fully&#8230;\nThe post GitHub Models is being fully retired on July 30, 2026 appeared first on The GitHub Blog.",
+    "url": "https://github.blog/changelog/2026-07-01-github-models-is-being-fully-retired-on-july-30-2026"
   },
   {
-    "week": "2026-W26",
-    "date": "Fri, 26 Ju",
-    "tool": "GitHub",
-    "category": "integration",
-    "title": "GitHub Desktop 3.6: Worktrees and deeper Copilot integration",
-    "summary": "GitHub Desktop 3.6 brings more of your day-to-day Git flow into one place with GitHub Copilot now powering commit authoring and merge conflict resolution, plus new Git worktree support. The&#8230;\nThe post GitHub Desktop 3.6: Worktrees and deeper Copilot integration appeared first on The GitHub Blog",
-    "url": "https://github.blog/changelog/2026-06-26-github-desktop-3-6-worktrees-and-deeper-copilot-integration"
-  },
-  {
-    "week": "2026-W26",
-    "date": "Fri, 26 Ju",
-    "tool": "OpenAI",
-    "category": "update",
-    "title": "Previewing GPT-5.6 Sol: a next-generation model",
-    "summary": "OpenAI previews GPT-5.6 Sol, a next-generation model with stronger capabilities in coding, science, and cybersecurity, paired with its most advanced safety stack.",
-    "url": "https://openai.com/index/previewing-gpt-5-6-sol"
-  },
-  {
-    "week": "2026-W26",
-    "date": "Thu, 25 Ju",
+    "week": "2026-W27",
+    "date": "Wed, 01 Ju",
     "tool": "GitHub",
     "category": "update",
-    "title": "Copilot code review: Analysis depth and efficiency updates",
-    "summary": "Copilot code review now uses the built-in file exploration tools available in the Copilot CLI and SDK, significantly improving review cost efficiency with no change to your existing workflow. If&#8230;\nThe post Copilot code review: Analysis depth and efficiency updates appeared first on The GitHub B",
-    "url": "https://github.blog/changelog/2026-06-25-copilot-code-review-analysis-depth-and-efficiency-updates"
+    "title": "Enterprise managed-settings.json is generally available",
+    "summary": "GitHub Enterprise Cloud customers can configure AI standards through a managed-settings.json file maintained in a .github-private repository in a selected organization. This allows the enterprise to define new governance and&#8230;\nThe post Enterprise managed-settings.json is generally available app",
+    "url": "https://github.blog/changelog/2026-07-01-enterprise-managed-settings-json-is-generally-available"
   },
   {
-    "week": "2026-W26",
-    "date": "Thu, 25 Ju",
+    "week": "2026-W27",
+    "date": "Wed, 01 Ju",
     "tool": "GitHub",
     "category": "update",
-    "title": "Enterprise-managed settings now support strictKnownMarketplaces in VS Code and GitHub Copilot CLI",
-    "summary": "Enterprises can now control which plugins their users can install in GitHub Copilot CLI and VS Code. This setting is now available in public preview. Add strictKnownMarketplaces to your enterprise-managed&#8230;\nThe post Enterprise-managed settings now support strictKnownMarketplaces in VS Code and ",
-    "url": "https://github.blog/changelog/2026-06-25-enterprise-managed-settings-now-support-strictknownmarketplaces-in-vs-code-and-the-cli"
+    "title": "Secret scanning adds validators for Asana, IBM, and MessageBird",
+    "summary": "Secret scanning now runs validity checks on Asana, IBM, and MessageBird secrets so you can tell whether a leaked credential is still active. Validity checks added These patterns now support&#8230;\nThe post Secret scanning adds validators for Asana, IBM, and MessageBird appeared first on The GitHub B",
+    "url": "https://github.blog/changelog/2026-07-01-secret-scanning-adds-validators-for-asana-ibm-and-messagebird"
   },
   {
-    "week": "2026-W26",
-    "date": "Thu, 25 Ju",
+    "week": "2026-W27",
+    "date": "Wed, 01 Ju",
+    "tool": "GitHub",
+    "category": "new_feature",
+    "title": "New C++ language server config skill for Copilot CLI",
+    "summary": "The Microsoft C++ Language Server is now available as a plugin on the Copilot Plugins marketplace. It includes a new built-in setup skill that helps automate project setup, making it&#8230;\nThe post New C++ language server config skill for Copilot CLI appeared first on The GitHub Blog.",
+    "url": "https://github.blog/changelog/2026-07-01-new-c-language-server-config-skill-for-copilot-cli"
+  },
+  {
+    "week": "2026-W27",
+    "date": "Wed, 01 Ju",
     "tool": "Google AI",
     "category": "new_feature",
-    "title": "Our latest Google Finance upgrades, including a new app",
-    "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Finance_blog_image_June_.max-600x600.format-webp.webp\">The new Google Finance is coming out of beta and launching a new Android app.",
-    "url": "https://blog.google/products-and-platforms/products/search/google-finance-updates-june-2026/"
+    "title": "The latest AI news we announced in June 2026",
+    "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/260701_ICYMI-June-AI_Thumb.max-600x600.format-webp.webp\">Here are Google’s latest AI updates from June 2026.",
+    "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/"
   },
   {
-    "week": "2026-W26",
-    "date": "Thu, 25 Ju",
-    "tool": "OpenAI",
-    "category": "update",
-    "title": "How agents are transforming work",
-    "summary": "A new OpenAI research paper shows how AI agents are transforming work, enabling longer, more complex tasks and expanding productivity across roles.",
-    "url": "https://openai.com/index/how-agents-are-transforming-work"
+    "week": "2026-W27",
+    "date": "Wed, 01 Ju",
+    "tool": "Google AI",
+    "category": "new_feature",
+    "title": "New York City educators and industry leaders gathered at Google’s offices to shape the future of AI in classrooms.",
+    "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Summit_Photo_1.max-600x600.format-webp.webp\">Google, the New York Jobs CEO Council and Urban Assembly hosted an AI summit for 150 education and industry leaders.",
+    "url": "https://blog.google/products-and-platforms/products/education/nyc-ai-summit/"
   },
   {
-    "week": "2026-W26",
-    "date": "Wed, 24 Ju",
+    "week": "2026-W27",
+    "date": "Tue, 30 Ju",
     "tool": "OpenAI",
     "category": "update",
-    "title": "OpenAI and Broadcom unveil LLM-optimized inference chip",
-    "summary": "OpenAI and Broadcom introduce Jalapeño, a custom AI chip built for LLM inference to improve performance, efficiency, and scale across AI systems.",
-    "url": "https://openai.com/index/openai-broadcom-jalapeno-inference-chip"
+    "title": "How ChatGPT adoption has expanded",
+    "summary": "New OpenAI Signals data shows how ChatGPT adoption is growing globally, with users increasing usage, exploring more capabilities, and driving growth across regions and languages.",
+    "url": "https://openai.com/index/how-chatgpt-adoption-has-expanded"
   },
   {
-    "week": "2026-W26",
-    "date": "Tue, 23 Ju",
+    "week": "2026-W27",
+    "date": "Tue, 30 Ju",
+    "tool": "Google AI",
+    "category": "update",
+    "title": "Unlocking Britain’s next era of productivity: Building a nation of AI trailblazers",
+    "summary": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_Generated_Image_k2dxu1k2.max-600x600.format-webp.webp\">Google UK shares its latest Economic Impact Report and how to enable more people to unlock the benefits of AI-powered technologies.",
+    "url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/unlocking-britains-next-era-of-productivity-building-a-nation-of-ai-trailblazers/"
+  },
+  {
+    "week": "2026-W27",
+    "date": "Tue, 30 Ju",
     "tool": "OpenAI",
     "category": "update",
-    "title": "How GPT-5 helped immunologist Derya Unutmaz solve a 3-year-old mystery",
-    "summary": "GPT-5 Pro helped solve a 3-year-old immunology mystery, offering insights into T cell behavior. The breakthrough could support cancer and autoimmune research.",
-    "url": "https://openai.com/index/gpt-5-immunology-mystery"
+    "title": "Inside Genebench-Pro",
+    "summary": "Inside Genebench-Pro",
+    "url": "https://openai.com/index/genebench-pro/case-studies"
   }
 ];
